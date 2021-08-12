@@ -118,6 +118,12 @@
                         <p>Booking</p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="inventory_management.php">
+                    <i class="material-icons">article</i>
+                        <p>Inventory</p>
+                    </a>
+                </li>
                 <li class="nav-item ">
                     <a class="nav-link" href="settings.php">
                         <i class="fa fa-cog"></i>
