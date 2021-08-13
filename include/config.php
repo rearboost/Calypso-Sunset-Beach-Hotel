@@ -3,7 +3,7 @@
 	$severname = "localhost";
 	$username = "root";
 	$password = "root";
-	$db = "hmsdb";
+	$db = "calypso";
 
 
 	$conn = mysqli_connect($severname,$username,$password);
