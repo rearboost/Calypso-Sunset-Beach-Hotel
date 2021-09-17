@@ -2,5 +2,5 @@
     <script>
         // document.write(new Date().getFullYear())
     </script>Powered by |
-    <a href="https://www.creative-tim.com" target="_blank">Nexgen ITs @ 2018</a>
+    <a href="https://rearboost.com/" target="_blank">Rearboost Innovations @ 2021</a>
 </div>

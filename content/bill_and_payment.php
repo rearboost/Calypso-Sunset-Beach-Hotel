@@ -58,7 +58,7 @@
     <!-- <link rel="apple-touch-icon" href="../assets/img/apple-icon.png"> -->
     <link rel="icon" href="../images/logo.png">
     <title>
-        Kandy Rivers Edge
+        Calypso Sunset 
     </title>
     <!-- head links -->
     <?php include('../include/head.php'); ?>
@@ -118,9 +118,9 @@
                         <p>Booking</p>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="inventory_management.php">
-                    <i class="material-icons">article</i>
+                 <li class="nav-item ">
+                    <a class="nav-link" href="inventory.php">
+                      <i class="fa fa-book"></i>
                         <p>Inventory</p>
                     </a>
                 </li>
@@ -758,9 +758,11 @@
         <div class="modal-body">
           <div id="printablediv">
           <div class="billinfor">
-            <h4 style="text-align: center;">Kandy Rivers Edge</h4>
-            <p style="text-align: center; font-size: 15px; margin-top: -7px;">89, Thekka Watta road, Tennekumbura, Kandy, 20166 Kandy, Sri Lanka</p>
-            <p style="text-align: center; font-size: 15px; margin-top: -12px;">055-XXXXXXXX</p>
+            <center><img src="../images/print.png" alt="calypso sunset"></center>
+            <!-- <center><img src="images/logo.png" alt=""></center>
+            <h4 style="text-align: center;">Calipso Sun Beach Hotels</h4>
+            <p style="text-align: center; font-size: 15px; margin-top: -7px;">Calipso Sun Beach Hitel , Iranwila , Chilaw</p>
+            <p style="text-align: center; font-size: 15px; margin-top: -12px;"></p> -->
             <p style="text-align: center; font-size: 15px; margin-top: -12px;">Date : <?php echo date("Y-m-d"); ?></p>
               <p style="float: left;">Customer Name : <?php echo $pcname; ?></p>
               <p style="float: right;">Booking No : <?php echo $_GET['selectid']; ?></p>
@@ -876,8 +878,8 @@
                   <div class="billfooter">
                     <h4 style="text-align: center;">Thank You</h4>
                     <p style="text-align: center; font-size: 15px; margin-top: -7px;">Come Again</p>
-                    <p style="text-align: center; font-size: 15px; margin-top: -12px;">Web :www.kandyriceredge.com  Tel: 071-XXXXXXXXX</p>
-                      <p style="text-align: center; font-size: 13px; margin-top: -12px;">Powered by | Nexgen ITs @ 2018</p>
+                    <p style="text-align: center; font-size: 15px; margin-top: -12px;">Web :www.calypsosunset.com  Tel: 071-XXXXXXXXX</p>
+                      <p style="text-align: center; font-size: 13px; margin-top: -12px;">Powered by | Rearboost Innovations @ 2021</p>
                   </div>
         </div>
        </div>

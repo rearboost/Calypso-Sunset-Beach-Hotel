@@ -29,14 +29,14 @@
         Tip 2: you can also add an image using data-image tag
     -->
             <div class="logo">
-              <a href="home.php" class="simple-text logo-normal">
+                <a href="home.php" class="simple-text logo-normal">
                 <img src="../images/logo.png" alt="" style="width: 80%;">
-              </a>
+                </a>
             </div>
             <!-- nav bar  -->
             <div class="sidebar-wrapper">
               <ul class="nav">
-                <li class="nav-item active">
+                <li class="nav-item">
                     <a class="nav-link" href="home.php">
                         <i class="material-icons">dashboard</i>
                         <p>Dashboard</p>
@@ -60,13 +60,13 @@
                         <p>Food and beverage</p>
                     </a>
                 </li>
-                <li class="nav-item ">
+                <li class="nav-item">
                     <a class="nav-link" href="booking.php">
-                      <i class="fa fa-users"></i>
+                        <i class="fa fa-users"></i>
                         <p>Booking</p>
                     </a>
                 </li>
-                  <li class="nav-item ">
+                 <li class="nav-item active">
                     <a class="nav-link" href="inventory.php">
                       <i class="fa fa-book"></i>
                         <p>Inventory</p>
@@ -74,7 +74,7 @@
                 </li>
                 <li class="nav-item ">
                     <a class="nav-link" href="settings.php">
-                         <i class="fa fa-cog"></i>
+                        <i class="fa fa-cog"></i>
                         <p>Settings</p>
                     </a>
                 </li>
@@ -85,18 +85,9 @@
             <!-- Navbar -->
             <?php include('../include/navhead.php'); ?>
             <!-- End Navbar -->
-            <div class="content">
+            <!-- <div class="content">
                 <div class="container-fluid">
                     <div class="row">
-                      <?php
-                         $stus ="1";
-                         $querybill ="SELECT COUNT(id) as id FROM bookinginfor WHERE billstatus='$stus'";
-                         $resultbill =mysqli_query($conn,$querybill);
-                         while ($rowbill =mysqli_fetch_array($resultbill))
-                         {
-                            $idbill =$rowbill['id'];
-                         }
-                      ?>
                         <div class="col-lg-3 col-md-6 col-sm-6">
                             <div class="card card-stats">
                                 <div class="card-header card-header-warning card-header-icon">
@@ -104,25 +95,18 @@
                                         <i class="material-icons">content_copy</i>
                                     </div>
                                     <p class="card-category">Bill and payment</p>
-                                    <h3 class="card-title">
-                                      <?php echo $idbill; ?>
+                                    <h3 class="card-title">49/50
+                                        <small>GB</small>
                                     </h3>
                                 </div>
                                 <div class="card-footer">
                                     <div class="stats">
-                                        <a href="bill_and_payment.php">Get More Bill...</a>
+                                        <i class="material-icons text-danger">warning</i>
+                                        <a href="#pablo">Get More Space...</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <?php
-                           $queryr ="SELECT COUNT(id) as id FROM roominfor";
-                           $resultr =mysqli_query($conn,$queryr);
-                           while ($rowr =mysqli_fetch_array($resultr))
-                           {
-                              $rd =$rowr['id'];
-                           }
-                        ?>
                         <div class="col-lg-3 col-md-6 col-sm-6">
                             <div class="card card-stats">
                                 <div class="card-header card-header-success card-header-icon">
@@ -130,7 +114,7 @@
                                         <i class="fa fa-bed"></i>
                                     </div>
                                     <p class="card-category">Room management</p>
-                                    <h3 class="card-title"><?php echo $rd; ?></h3>
+                                    <h3 class="card-title">$34,245</h3>
                                 </div>
                                 <div class="card-footer">
                                     <div class="stats">
@@ -139,14 +123,6 @@
                                 </div>
                             </div>
                         </div>
-                        <?php
-                           $queryf ="SELECT COUNT(id) as id FROM foodinfor";
-                           $resultf =mysqli_query($conn,$queryf);
-                           while ($rowf =mysqli_fetch_array($resultf))
-                           {
-                              $fd =$rowf['id'];
-                           }
-                        ?>
                         <div class="col-lg-3 col-md-6 col-sm-6">
                             <div class="card card-stats">
                                 <div class="card-header card-header-danger card-header-icon">
@@ -154,31 +130,23 @@
                                         <i class="fa fa-cutlery"></i>
                                     </div>
                                     <p class="card-category">Food and beverage</p>
-                                    <h3 class="card-title"><?php echo $fd; ?></h3>
+                                    <h3 class="card-title">75</h3>
                                 </div>
                                 <div class="card-footer">
                                     <div class="stats">
-                                        <i class="material-icons">local_offer</i> Tracked from Food
+                                        <i class="material-icons">local_offer</i> Tracked from Github
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <?php
-                           $queryb ="SELECT COUNT(id) as id FROM bookinginfor";
-                           $resultb =mysqli_query($conn,$queryb);
-                           while ($rowb =mysqli_fetch_array($resultb))
-                           {
-                              $bd =$rowb['id'];
-                           }
-                        ?>
                         <div class="col-lg-3 col-md-6 col-sm-6">
                             <div class="card card-stats">
                                 <div class="card-header card-header-info card-header-icon">
                                     <div class="card-icon">
                                         <i class="fa fa-users"></i>
                                     </div>
-                                    <p class="card-category">Booking</p>
-                                    <h3 class="card-title"><?php echo $bd; ?></h3>
+                                    <p class="card-category">Employees</p>
+                                    <h3 class="card-title">+245</h3>
                                 </div>
                                 <div class="card-footer">
                                     <div class="stats">
@@ -188,7 +156,7 @@
                             </div>
                         </div>
                     </div>
-                    <!-- <div class="row">
+                    <div class="row">
                         <div class="col-md-4">
                             <div class="card card-chart">
                                 <div class="card-header card-header-success">
@@ -238,8 +206,8 @@
                                 </div>
                             </div>
                         </div>
-                    </div> -->
-                    <!-- <div class="row">
+                    </div>
+                    <div class="row">
                         <div class="col-lg-6 col-md-12">
                             <div class="card">
                                 <div class="card-header card-header-tabs card-header-primary">
@@ -529,7 +497,171 @@
                                 </div>
                             </div>
                         </div>
-                    </div> -->
+                    </div>
+                </div>
+            </div> -->
+            <div class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-header card-header-primary">
+                                    <h4 class="card-title">Inventory management - Non Food</h4>
+                                    <p class="card-category">Information</p>
+                                </div>
+                                <div class="card-body">
+                                    <form id="non_food_form">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">Inventory No -- </label>
+                                                    <?php
+
+                                                        $sql ="SELECT id FROM Inventory ORDER BY id DESC LIMIT 1";
+                                                        $result=mysqli_query($conn,$sql);
+                                                        $row_get = mysqli_fetch_assoc($result);
+                                                        $count =mysqli_num_rows($result);
+
+                                                        if($count==0){
+                                                            $nextID = 1;
+                                                        }else{
+                                                            $nextID =$row_get['id']+1;
+                                                        }
+                                                        $nextID = sprintf('INV-%05d', $nextID);
+                                                        echo '<input type="hidden" name="item_id" id="item_id" value='.$nextID.'>';
+
+                                                    ?>
+                                                    <b><span><?php echo $nextID;  ?></span></b>
+                                                </div>
+                                            </div>
+                                        </div>
+                                         <div class="row">
+                                          <div class="col-md-6">
+                                              <div class="form-group">
+                                                  <label class="bmd-label-floating">Category<span style="color: red;">*<span></label>
+                                                  <!-- <input type="text" class="form-control" id="alocatedroom"> -->
+                                                  <select  class="form-control" id="cat_id" name="cat_id" required>
+                                                          <option value="">Select</option>
+                                                          <?php
+                                                          $query ="SELECT * FROM category WHERE isFood='off'";
+                                                          $result =mysqli_query($conn, $query);
+
+                                                          while($row = mysqli_fetch_array($result))
+                                                          {
+                                                              echo "<option value='".$row['id']."'>".$row['name']."</option>";
+                                                          }
+                                                         ?>
+                                                  </select>
+                                              </div>
+                                          </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">Item name<span style="color: red;">*<span></label>
+                                                    <input type="text" class="form-control" id="iname" name="iname" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">Quantity<span style="color: red;">*<span></label>
+                                                    <input type="text" class="form-control" id="quantity" name="quantity" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">Description</label>
+                                                    <textarea class="form-control" rows="3" id="description" name="description"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                                        
+                                         <input type="hidden" class="form-control" name="add_item" value="add_item" />
+                                        <button type="submit"  class="btn btn-primary pull-right" >Add Data</button>
+                                        <div class="clearfix"></div>
+                                    </form>
+                                    <div id="snackbar"><p id="msg_view"></p></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-header card-header-primary">
+                                    <h4 class="card-title ">Inventory Table</h4>
+                                    <p class="card-category"> Here is a subtitle for this table</p>
+                                </div>
+                                <div class="card-body">
+                                   <?php
+                                       $query = "SELECT A.item_id , B.name AS cname , A.name AS iname , A.quantity , A.description FROM Inventory A  INNER JOIN category B ON A.cat_id = B.id;";
+                                       $result = mysqli_query($conn ,$query);
+                                    ?>
+                                    <div class="table-responsive" id="room_table">
+                                        <table class="table">
+                                            <thead class=" text-primary">
+                                                <th>
+                                                    Inventory No
+                                                </th>
+                                                <th>
+                                                    Category name
+                                                </th>
+                                                <th>
+                                                    Item name
+                                                </th>
+                                                <th>
+                                                   Quantity
+                                                </th>
+                                                <th>
+                                                    Description
+                                                </th>
+                                            </thead>
+                                            <tbody>
+                                                <?php
+                                                while($row = mysqli_fetch_array($result))
+                                                   {
+                                                    echo '
+                                                    <tr>
+                                                     <td>'.$row["item_id"].'</td>';
+                                                     echo '
+                                                     <td>'.$row["cname"].'</td>
+                                                     <td>'.$row["iname"].'</td>
+                                                     <td>'.$row["quantity"].'</td>
+                                                     <td>'.$row["description"].'</td>  ';
+                                                    
+
+                                                  echo '</tr>
+                                                      '  ;
+                                                    $i++;
+                                                   }
+                                                 ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="col-md-4">
+                            <div class="card card-profile">
+                                <div class="card-avatar">
+                                    <a href="#pablo">
+                                        <img class="img" src="../assets/img/faces/marc.jpg" />
+                                    </a>
+                                </div>
+                                <div class="card-body">
+                                    <h6 class="card-category text-gray">CEO / Co-Founder</h6>
+                                    <h4 class="card-title">Alec Thompson</h4>
+                                    <p class="card-description">
+                                        Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...
+                                    </p>
+                                    <a href="#pablo" class="btn btn-primary btn-round">Follow</a>
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
                 </div>
             </div>
             <footer class="footer ">
@@ -557,22 +689,35 @@
 <!-- Material Dashboard Core initialisations of plugins and Bootstrap Material Design Library -->
 <script src="../assets/js/material-dashboard.js?v=2.0.0"></script>
 <!-- demo init -->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="../assets/js/plugins/demo.js"></script>
 <script type="text/javascript">
-    $(document).ready(function() {
 
-        //init wizard
+   //Item Non food Form
+    $(function () {
 
-        // demo.initMaterialWizard();
+    $('#non_food_form').on('submit', function (e) {
+      e.preventDefault();
 
-        // Javascript method's body can be found in assets/js/demos.js
-        demo.initDashboardPageCharts();
-
-        demo.initCharts();
-
+          $.ajax({
+            type: 'post',
+            url: '../controller/controller_inventory.php',
+            data: $('#non_food_form').serialize(),
+            success: function (data) {
+                if(data==1){
+                
+                  swal("Successfully Submited !", {
+                  icon: "success",
+                  });
+                }
+                // Location refech
+                setTimeout(function(){location.reload(); },3000);
+            }
+          });
     });
+  });
+   
+
 </script>
-<!--
- -->
 
 </html>

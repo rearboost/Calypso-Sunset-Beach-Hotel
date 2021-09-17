@@ -6467,8 +6467,8 @@ var BootstrapMaterialDesign = function ($$$1) {
               });
             }
           } catch (e) {
-            var message = "Failed to instantiate component: $('" + selector + "')[" + jqueryFn + "](" + componentConfig + ")";
-            console.error(message, e, "\nSelected elements: ", $$$1(selector)); // eslint-disable-line no-console
+            // var message = "Failed to instantiate component: $('" + selector + "')[" + jqueryFn + "](" + componentConfig + ")";
+            // console.error(message, e, "\nSelected elements: ", $$$1(selector)); // eslint-disable-line no-console
 
             throw e;
           }

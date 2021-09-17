@@ -27,7 +27,7 @@
     <!-- <link rel="apple-touch-icon" href="../assets/img/apple-icon.png"> -->
     <link rel="icon" href="../images/logo.png">
     <title>
-        Kandy Rivers Edge
+         Calypso Sunset 
     </title>
     <!-- head links -->
     <?php include('../include/head.php'); ?>
@@ -80,9 +80,9 @@
                         <p>Booking</p>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="inventory_management.php">
-                      <i class="material-icons">article</i>
+                 <li class="nav-item ">
+                    <a class="nav-link" href="inventory.php">
+                      <i class="fa fa-book"></i>
                         <p>Inventory</p>
                     </a>
                 </li>
@@ -199,7 +199,6 @@
                                                      <td>'.$row["roomtype"].'</td>
                                                      <td>'.$row["numbed"].'</td>
                                                      <td>'.$row["roomprice"].'</td>
-
                                                      <td width="5%"><button type="button" id="delete_form" name="delete_form" onclick="roomremoveconf(event ,'.$row["id"].')" class="btn btn-primary edit_data" style="margin: 0px; height: 25px; width: 70px; color: white; border-color: #2CA8FF; background-color: #2CA8FF; font-size: 12px;  padding: 4px 10px; margin-top: 0px;">Delete</button></td>
                                                      '; ?>
                                                      <td width="5%"><button type="button" id="edit_form" name="edit_form" onclick="window.location='http://localhost:8888/HMS/content/room_management.php?prop_id=<?php echo $row["id"];  ?>';" class="btn btn-primary edit_data" style="margin: 0px; height: 25px; width: 70px; color: white; border-color: #2CA8FF; background-color: #2CA8FF; font-size: 12px;  padding: 4px 10px; margin-top: 0px;">Edit</button></td>

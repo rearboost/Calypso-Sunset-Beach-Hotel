@@ -147,7 +147,7 @@ $(document).ready(function() {
         });
     }
 
-    // remove class has-error for checkbox validation
+    //remove class has-error for checkbox validation
     $('input[type="checkbox"][required="true"], input[type="radio"][required="true"]').on('click', function() {
         if ($(this).hasClass('error')) {
             $(this).closest('div').removeClass('has-error');

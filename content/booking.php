@@ -13,7 +13,7 @@
     <!-- <link rel="apple-touch-icon" href="../assets/img/apple-icon.png"> -->
     <link rel="icon" href="../images/logo.png">
     <title>
-        Kandy Rivers Edge
+         Calypso Sunset 
     </title>
     <!-- head links -->
     <?php include('../include/head.php'); ?>
@@ -66,9 +66,9 @@
                         <p>Booking</p>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="inventory_management.php">
-                    <i class="material-icons">article</i>
+                 <li class="nav-item ">
+                    <a class="nav-link" href="inventory.php">
+                      <i class="fa fa-book"></i>
                         <p>Inventory</p>
                     </a>
                 </li>

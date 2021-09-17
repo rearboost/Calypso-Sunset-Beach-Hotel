@@ -6,11 +6,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>HMS Login</title>
+	
+	<title></title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->
-	<link rel="icon" type="image/png" href="assetslog/images/icons/favicon.ico"/>
+	<link rel="icon" href="images/logo.png">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="assetslog/vendor/bootstrap/css/bootstrap.min.css">
 <!--===============================================================================================-->
@@ -42,7 +43,7 @@
 						H M S
 					</span>
 					<span class="login100-form-title p-b-48">
-						<i class="zmdi zmdi-font"></i>
+						<img src="./images/logo.png" alt="">
 					</span>
 							<div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
 								<input class="input100" type="text" name="username">

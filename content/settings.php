@@ -13,7 +13,7 @@
     <!-- <link rel="apple-touch-icon" href="../assets/img/apple-icon.png"> -->
     <link rel="icon" href="../images/logo.png">
     <title>
-        Kandy Rivers Edge
+         Calypso Sunset 
     </title>
     <!-- head links -->
     <?php include('../include/head.php'); ?>
@@ -66,9 +66,9 @@
                         <p>Booking</p>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="inventory_management.php">
-                    <i class="material-icons">article</i>
+                 <li class="nav-item ">
+                    <a class="nav-link" href="inventory.php">
+                      <i class="fa fa-book"></i>
                         <p>Inventory</p>
                     </a>
                 </li>
@@ -88,8 +88,9 @@
             <div class="content">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-md-12">
-                            <div class="card">
+                        <div class="col-md-12 row">
+                          <div class="col-md-6">
+                           <div class="card">
                                 <div class="card-header card-header-primary">
                                     <h4 class="card-title">Food</h4>
                                     <p class="card-category">Information</p>
@@ -124,6 +125,7 @@
                                                     <input type="file" name="file" id="file" style="position: inherit; opacity: 1; z-index: inherit;">
                                                 </div>
                                             </div>
+                                          
                                             <div class="col-md-4" style="margin-bottom: 1%;">
                                                 <div class="form-group">
                                                     <label class="bmd-label-floating">Category<span style="color: red;">*<span></label>
@@ -137,7 +139,7 @@
                                                 </div>
                                             </div>
 
-                                            <div class="col-sm-6">
+                                            <div class="col-sm-12">
                                               <label class="bmd-label-floating" style="margin-bottom: 6%;">Size</label>
                                               <table class="table table-bordered">
                                                  <thead>
@@ -149,7 +151,7 @@
                                                  <tbody>
                                                    <tr>
                                                      <td>Small</td>
-                                                     <td><input type="number"  id="foodsmall"></td>
+                                                     <td><input type="number" class="error"  id="foodsmall"></td>
                                                    </tr>
                                                    <tr>
                                                      <td>Medium</td>
@@ -162,7 +164,7 @@
                                                  </tbody>
                                                </table>
                                             </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-12">
                                                 <div class="form-group">
                                                   <button type="button" class="btn btn-primary " onclick="window.location='http://localhost:8888/HMS/content/room_management.php'">Clear</button>
                                                   <button type="button" class="btn btn-primary" id="food_btn_submit" name="food_btn_submit" onclick="FoodFormsubmit()">Submit Data</button>
@@ -174,9 +176,50 @@
                                     </form>
                                 </div>
                             </div>
+                          </div>
+                          <div class="col-md-6">
+                           <div class="card">
+                                <div class="card-header card-header-primary">
+                                    <h4 class="card-title">Item</h4>
+                                    <p class="card-category">Category</p>
+                                </div>
+                                <div class="card-body">
+                                    <form id="category_form">
+                                        <div class="form-group">
+                                           <div class="col-md-4">
+                                              <div class="form-group">
+                                                  <label class="bmd-label-floating">Category Name<span style="color: red;">*<span></label>
+                                                  <input type="text" class="form-control" id="cname" name="cname">
+                                              </div>
+                                           </div>
+                                            <div class="col-md-4" style="margin-bottom: 1%;">
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">Is Food<span style="color: red;">*<span></label>
+                                                      <select  class="form-control" id="isFood" name="isFood">
+                                                        <option value="">Select</option>
+                                                        <option value="on">Food</option>
+                                                        <option value="off">Non Food</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                  <input type="hidden" class="form-control" name="add" value="add" />
+                                                  <button type="submit" class="btn btn-primary" >Submit Data</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </form>
+                                </div>
+                            </div>
+                          </div>
                         </div>
-                        <div id="snackbar"><p id="msg_view"></p></div>
+                        </div>
 
+                       
+
+                        <div id="snackbar"><p id="msg_view"></p></div>
                     </div>
                 </div>
             </div>
@@ -192,7 +235,7 @@
 <!-- Modal -->
 <?php include('../include/modal.php'); ?>
 <!--   Core JS Files   -->
-<script src="../assets/js/core/jquery.min.js"></script>
+<!-- <script src="../assets/js/core/jquery.min.js"></script> -->
 <script src="../assets/js/core/popper.min.js"></script>
 <script src="../assets/js/bootstrap-material-design.js"></script>
 <script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
@@ -206,6 +249,8 @@
 <script src="../assets/js/material-dashboard.js?v=2.0.0"></script>
 <!-- demo init -->
 <script src="../assets/js/plugins/demo.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 <script type="text/javascript">
     $(document).ready(function() {
 
@@ -379,8 +424,32 @@
           setTimeout(function(){location.reload(); },3000);
       }
 
+    
+    //Category Form
 
+    $(function () {
 
+    $('#category_form').on('submit', function (e) {
+      e.preventDefault();
+
+          $.ajax({
+            type: 'post',
+            url: '../controller/controller_inventory.php',
+            data: $('#category_form').serialize(),
+            success: function (data) {
+                if(data==1){
+                
+                  swal("Successfully Submited !", {
+                  icon: "success",
+                  });
+                }
+                // Location refech
+                setTimeout(function(){location.reload(); },3000);
+            }
+          });
+    });
+  });
+  
 </script>
 
 
