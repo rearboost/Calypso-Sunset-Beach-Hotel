@@ -594,7 +594,98 @@
                                         <button type="submit"  class="btn btn-primary pull-right" >Add Data</button>
                                         <div class="clearfix"></div>
                                     </form>
-                                    <div id="snackbar"><p id="msg_view"></p></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-header card-header-primary" style="background: black;">
+                                    <h4 class="card-title">Inventory management - Food</h4>
+                                    <p class="card-category">Information</p>
+                                </div>
+                                <div class="card-body">
+                                    <form id="food_form">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">Inventory No -- </label>
+                                                    <?php
+
+                                                        $sql ="SELECT id FROM Inventory ORDER BY id DESC LIMIT 1";
+                                                        $result=mysqli_query($conn,$sql);
+                                                        $row_get = mysqli_fetch_assoc($result);
+                                                        $count =mysqli_num_rows($result);
+
+                                                        if($count==0){
+                                                            $nextID = 1;
+                                                        }else{
+                                                            $nextID =$row_get['id']+1;
+                                                        }
+                                                        $nextID = sprintf('INV-%05d', $nextID);
+                                                        echo '<input type="hidden" name="item_id" id="item_id" value='.$nextID.'>';
+
+                                                    ?>
+                                                    <b><span><?php echo $nextID;  ?></span></b>
+                                                </div>
+                                            </div>
+                                        </div>
+                                         <div class="row">
+                                          <div class="col-md-6">
+                                              <div class="form-group">
+                                                  <label class="bmd-label-floating">Category<span style="color: red;">*<span></label>
+                                                  <!-- <input type="text" class="form-control" id="alocatedroom"> -->
+                                                  <select  class="form-control" id="cat_id" name="cat_id" required>
+                                                          <option value="">Select</option>
+                                                          <?php
+                                                          $query ="SELECT * FROM category WHERE isFood='on'";
+                                                          $result =mysqli_query($conn, $query);
+
+                                                          while($row = mysqli_fetch_array($result))
+                                                          {
+                                                              echo "<option value='".$row['id']."'>".$row['name']."</option>";
+                                                          }
+                                                         ?>
+                                                  </select>
+                                              </div>
+                                          </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">Item name<span style="color: red;">*<span></label>
+                                                    <input type="text" class="form-control" id="iname" name="iname" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                         <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">Measurement<span style="color: red;">*<span></label>
+                                                    <input type="text" class="form-control" id="measurement" name="measurement" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">Quantity<span style="color: red;">*<span></label>
+                                                    <input type="text" class="form-control" id="quantity" name="quantity" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">Description</label>
+                                                    <textarea class="form-control" rows="3" id="description" name="description"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                                        
+                                         <input type="hidden" class="form-control" name="add_food" value="add_food" />
+                                        <button type="submit"  class="btn btn-primary pull-right" style="background-color: black;" >Add Data</button>
+                                        <div class="clearfix"></div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -607,7 +698,7 @@
                                 </div>
                                 <div class="card-body">
                                    <?php
-                                       $query = "SELECT A.item_id , B.name AS cname , A.name AS iname , A.quantity , A.description ,assign FROM Inventory A  INNER JOIN category B ON A.cat_id = B.id;";
+                                       $query = "SELECT A.item_id , B.name AS cname , A.name AS iname , A.quantity , A.measurement ,A.description ,assign FROM Inventory A  INNER JOIN category B ON A.cat_id = B.id;";
                                        $result = mysqli_query($conn ,$query);
                                     ?>
                                     <div class="table-responsive" id="room_table">
@@ -621,6 +712,9 @@
                                                 </th>
                                                 <th>
                                                     Item name
+                                                </th>
+                                                <th>
+                                                   Measurement
                                                 </th>
                                                 <th>
                                                    Quantity
@@ -644,6 +738,7 @@
                                                      echo '
                                                      <td>'.$row["cname"].'</td>
                                                      <td>'.$row["iname"].'</td>
+                                                     <td>'.$row["measurement"].'</td>
                                                      <td>'.$row["quantity"].'</td>
                                                      <td>'.$row["assign"].'</td>
                                                      <td>'.$description.'</td>  ';
@@ -717,6 +812,31 @@
             type: 'post',
             url: '../controller/controller_inventory.php',
             data: $('#non_food_form').serialize(),
+            success: function (data) {
+                if(data==1){
+                
+                  swal("Successfully Submited !", {
+                  icon: "success",
+                  });
+                }
+                // Location refech
+                setTimeout(function(){location.reload(); },3000);
+            }
+          });
+    });
+  });
+
+
+   //Food Form
+    $(function () {
+
+    $('#food_form').on('submit', function (e) {
+      e.preventDefault();
+
+          $.ajax({
+            type: 'post',
+            url: '../controller/controller_inventory.php',
+            data: $('#food_form').serialize(),
             success: function (data) {
                 if(data==1){
                 
