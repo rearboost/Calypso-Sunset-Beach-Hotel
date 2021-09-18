@@ -519,39 +519,13 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="card">
-                                <div class="card-header card-header-primary">
-                                    <h4 class="card-title">Assign Item To Rooms</h4>
+                                <div class="card-header card-header-primary" style="background: #e87474;">
+                                    <h4 class="card-title">Bad Item</h4>
                                     <p class="card-category">Information</p>
                                 </div>
                                 <div class="card-body">
-                                    <form id="assign_form">
+                                    <form id="bad_item_form">
                                          <div class="row">
-                                          <div class="col-md-6">
-                                              <div class="form-group">
-                                                  <label class="bmd-label-floating">Rooms<span style="color: red;">*<span></label>
-                                                  <!-- <input type="text" class="form-control" id="alocatedroom"> -->
-                                                  <select  class="form-control" id="roomno" name="roomno" required>
-                                                          <option value="">Select</option>
-                                                          <?php
-                                                          $query ="SELECT * FROM  roominfor";
-                                                          $result =mysqli_query($conn, $query);
-
-                                                          while($row = mysqli_fetch_array($result))
-                                                          {
-                                                              echo "<option value='".$row['id']."'>".$row['roomno']."</option>";
-                                                          }
-                                                         ?>
-                                                  </select>
-                                              </div>
-                                          </div>
-                                         <div class="col-md-6">
-                                              <div class="form-group">
-                                                  <p>Room Type - <b><span id="roomtype"></span></b></p>    
-                                              </div>
-                                          </div>
-                                        </div>
-
-                                        <div class="row">
                                           <div class="col-md-6">
                                               <div class="form-group">
                                                   <label class="bmd-label-floating">Item<span style="color: red;">*<span></label>
@@ -570,12 +544,42 @@
                                                   </select>
                                               </div>
                                           </div>
-                                        <div class="col-md-6">
+                                        </div>
+                                         <div class="row">
+                                          <div class="col-md-6">
                                               <div class="form-group">
-                                                  <p>Available quantity - <b><span id="available"></span></b></p> 
-                                                 
+                                                  <label class="bmd-label-floating">Form<span style="color: red;">*<span></label>
+                                                  <select  class="form-control" id="from" name="from" required>
+                                                        <option value="">Select</option>
+                                                        <option value="d">Direct</option>
+                                                        <option value="r">From Room</option>
+                                                  </select>
                                               </div>
                                           </div>
+                                        </div>
+                                        <div class="row" id="rooms_select" style="display: none;">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">Rooms<span style="color: red;">*<span></label>
+                                                    <select  class="form-control" id="roomno" name="roomno" required>
+                                                            <option value="0">Select</option>
+                                                            <?php
+                                                            $query ="SELECT * FROM  roominfor";
+                                                            $result =mysqli_query($conn, $query);
+
+                                                            while($row = mysqli_fetch_array($result))
+                                                            {
+                                                                echo "<option value='".$row['id']."'>".$row['roomno']."</option>";
+                                                            }
+                                                            ?>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <p>Room quantity - <b><span id="roomQuantity"></span></b></p>    
+                                                </div>
+                                            </div>
                                         </div>
                                          <div class="row">
                                             <div class="col-md-6">
@@ -588,14 +592,14 @@
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="form-group">
-                                                    <label class="bmd-label-floating">Description</label>
-                                                    <textarea class="form-control" rows="3" id="description" name="description"></textarea>
+                                                    <label class="bmd-label-floating">Reson</label>
+                                                    <textarea class="form-control" rows="3" id="reson" name="reson"></textarea>
                                                 </div>
                                             </div>
                                         </div>
                                                         
                                          <input type="hidden" class="form-control" name="add" value="add" />
-                                        <button type="submit"  class="btn btn-primary pull-right" >Add Data</button>
+                                        <button type="submit"  class="btn btn-primary pull-right" style="background-color: #e87474;">Add Data</button>
                                         <div class="clearfix"></div>
                                     </form>
                                     <div id="snackbar"><p id="msg_view"></p></div>
@@ -605,20 +609,17 @@
 
                         <div class="col-md-12">
                             <div class="card">
-                                <div class="card-header card-header-primary">
+                                <div class="card-header card-header-primary" style="background: #e87474;">
                                     <h4 class="card-title ">Assign Item Table</h4>
                                     <p class="card-category"> Here is a subtitle for this table</p>
                                 </div>
                                 <div class="card-body">
                                    <?php
-                                       $query = "SELECT A.roomno ,C.name AS iname ,B.quantity , B.description FROM
-                                                roominfor A
+                                       $query = "SELECT B.name AS iname ,A.quantity , A.reson FROM
+                                                bad_items A
                                                     INNER JOIN
-                                                assign_items B
-                                                    on A.id = B.room_id
-                                                    INNER JOIN 
-                                                Inventory C
-                                                    on B.item_id = C.id";
+                                                Inventory B
+                                                    on A.item_id = B.id";
                                        $result = mysqli_query($conn ,$query);
 
                                     ?>
@@ -626,19 +627,13 @@
                                         <table class="table">
                                             <thead class=" text-primary">
                                                 <th>
-                                                    Room No
-                                                </th>
-                                                <th>
                                                     Item name
                                                 </th>
                                                 <th>
                                                     Quantity
                                                 </th>
                                                 <th>
-                                                   Description
-                                                </th>
-                                                <th>
-                                                    
+                                                    Reson
                                                 </th>
                                             </thead>
                                             <tbody>
@@ -646,14 +641,13 @@
                                                 while($row = mysqli_fetch_array($result))
                                                    {
                                                     
-                                                    $description = str_replace('\r\n',"</br>",$row["description"]);
+                                                    $reson = str_replace('\r\n',"</br>",$row["reson"]);
                                                     echo '
                                                     <tr>
-                                                     <td>'.$row["roomno"].'</td>';
+                                                     <td>'.$row["iname"].'</td>';
                                                      echo '
-                                                     <td>'.$row["iname"].'</td>
                                                      <td>'.$row["quantity"].'</td>
-                                                     <td>'.$description.'</td>  ';
+                                                     <td>'.$reson.'</td>  ';
                                                   echo '</tr>
                                                       '  ;
                                                     $i++;
@@ -714,21 +708,21 @@
 <script src="../assets/js/plugins/demo.js"></script>
 <script type="text/javascript">
 
-    $('#available').html('0');
+  $('#roomQuantity').html('0');
 
-   //Assign Item Form
-    $(function () {
+   //Bad Item Form
+  $(function () {
 
-    $('#assign_form').on('submit', function (e) {
+    $('#bad_item_form').on('submit', function (e) {
       e.preventDefault();
 
           $.ajax({
             type: 'post',
-            url: '../controller/controller_assign_item.php',
-            data: $('#assign_form').serialize(),
+            url: '../controller/controller_bad_items.php',
+            data: $('#bad_item_form').serialize(),
             success: function (data) {
+
                 if(data==1){
-                
                   swal("Successfully Submited !", {
                   icon: "success",
                   });
@@ -740,45 +734,34 @@
     });
   });
 
+  //////////////// GET FROM STOCK  ////////////////
+   $('#from').on('change',function(){
+       var from = $(this).val();
 
-  //////////////// GET AVABLE STOCK  ////////////////
-   $('#item_id').on('change',function(){
-       var item_id = $(this).val();
-        $.ajax({
-
-            url: '../functions/get_assign_item.php',
-            method:"POST",
-            data:{item_id:item_id},
-            success: function (response) {
-                var obj = JSON.parse(response);
-                var available = obj.available;
-                $('#available').html(available);
-            }
-        });
+       if(from=="r"){
+          $("#rooms_select").css({"display":"flex"});
+       }else{
+          $("#rooms_select").css({"display":"none"});
+       }
     });
 
     //////////////// GET ROOMS INFO  ////////////////
 
     $('#roomno').on('change',function(){
        var roomno = $(this).val();
+       var item_id = $('#item_id').val();
         $.ajax({
 
-            url: '../functions/get_assign_item.php',
+            url: '../functions/get_bad_items.php',
             method:"POST",
-            data:{roomno:roomno},
+            data:{roomno:roomno,item_id:item_id},
             success: function (response) {
                 var obj = JSON.parse(response);
-                var roomtype = obj.roomtype;
-                $('#roomtype').html(roomtype);
+                var roomQuantity = obj.roomQuantity;
+                $('#roomQuantity').html(roomQuantity);
             }
         });
     });
-
-
-
-
-    
-   
 
 </script>
 

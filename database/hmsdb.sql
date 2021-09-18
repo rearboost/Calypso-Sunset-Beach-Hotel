@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Sep 18, 2021 at 07:18 AM
+-- Generation Time: Sep 18, 2021 at 04:05 PM
 -- Server version: 5.6.38
 -- PHP Version: 7.2.1
 
@@ -109,8 +109,41 @@ INSERT INTO `assign_items` (`
 id`,
 `room_id
 `, `item_id`, `quantity`, `description`) VALUES
-(1, 3, 2, '2.00', 'Not '),
-(2, 3, 2, '1.00', 'NOU');
+(1, 3, 2, '1.00', 'Not '),
+(2, 3, 2, '0.00', 'NOU');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `bad_items`
+--
+
+CREATE TABLE `bad_items`
+(
+  `id` int
+(11) NOT NULL,
+  `item_id` int
+(11) NOT NULL,
+  `quantity` decimal
+(10,2) NOT NULL,
+  `reson` varchar
+(1000) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `bad_items`
+--
+
+INSERT INTO `bad_items` (`
+id`,
+`item_id
+`, `quantity`, `reson`) VALUES
+(1, 2, '1.00', 'Damage'),
+(2, 2, '1.00', 'A'),
+(3, 2, '1.00', 'AAA'),
+(4, 2, '1.00', 'A'),
+(5, 2, '1.00', 'ADA'),
+(6, 2, '1.00', 'RE');
 
 -- --------------------------------------------------------
 
@@ -291,7 +324,7 @@ id`,
 `item_id
 `, `cat_id`, `name`, `measurement`, `quantity`, `assign`, `description`) VALUES
 (1, 'INV-00001', 2, 'TV', '', '4.00', '0.00', 'Good TB '),
-(2, 'INV-00002', 2, 'Bed', '', '7.00', '3.00', 'Good Bed'),
+(2, 'INV-00002', 2, 'Bed', '', '5.00', '3.00', 'Good Bed'),
 (3, 'INV-00003', 2, 'UI', '', '12.00', '0.00', 'New \\r\\nDoc'),
 (4, 'INV-00004', 1, 'Food New', 'ml ', '2.00', '0.00', 'NOT GOD');
 
@@ -414,6 +447,13 @@ ADD PRIMARY KEY
 (`id`);
 
 --
+-- Indexes for table `bad_items`
+--
+ALTER TABLE `bad_items`
+ADD PRIMARY KEY
+(`id`);
+
+--
 -- Indexes for table `bookinginfor`
 --
 ALTER TABLE `bookinginfor`
@@ -479,6 +519,13 @@ ALTER TABLE `addbillinfor`
 ALTER TABLE `assign_items`
   MODIFY `id` int
 (11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `bad_items`
+--
+ALTER TABLE `bad_items`
+  MODIFY `id` int
+(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `bookinginfor`
