@@ -9,7 +9,8 @@
 
     if(isset($_GET['prop_id']))
     {
-      $query = "SELECT * FROM roominfor";
+      $getID = $_GET['prop_id'];
+      $query = "SELECT * FROM roominfor WHERE id ='$getID'";
       $result = mysqli_query($conn ,$query);
       while($row = mysqli_fetch_array($result))
       {
@@ -47,9 +48,10 @@
               <img src="../images/logo.png" alt="" style="width: 80%;">
               </a>
             </div>
+            
             <!-- nav bar  -->
             <?php include('../include/sideMenu.php'); ?>
-            
+
         </div>
         <div class="main-panel">
             <!-- Navbar -->
@@ -157,7 +159,7 @@
                                                      <td>'.$row["roomprice"].'</td>
                                                      <td width="5%"><button type="button" id="delete_form" name="delete_form" onclick="roomremoveconf(event ,'.$row["id"].')" class="btn btn-primary edit_data" style="margin: 0px; height: 25px; width: 70px; color: white; border-color: #2CA8FF; background-color: #2CA8FF; font-size: 12px;  padding: 4px 10px; margin-top: 0px;">Delete</button></td>
                                                      '; ?>
-                                                     <td width="5%"><button type="button" id="edit_form" name="edit_form" onclick="window.location='http://localhost:8888/HMS/content/room_management.php?prop_id=<?php echo $row["id"];  ?>';" class="btn btn-primary edit_data" style="margin: 0px; height: 25px; width: 70px; color: white; border-color: #2CA8FF; background-color: #2CA8FF; font-size: 12px;  padding: 4px 10px; margin-top: 0px;">Edit</button></td>
+                                                     <td width="5%"><button type="button" id="edit_form" name="edit_form" onclick="window.location='./room_management.php?prop_id=<?php echo $row['id'];  ?>';" class="btn btn-primary edit_data" style="margin: 0px; height: 25px; width: 70px; color: white; border-color: #2CA8FF; background-color: #2CA8FF; font-size: 12px;  padding: 4px 10px; margin-top: 0px;">Edit</button></td>
                                                      <?php
                                                      echo '
                                                     </tr>
