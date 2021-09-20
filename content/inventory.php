@@ -34,62 +34,8 @@
                 </a>
             </div>
             <!-- nav bar  -->
-            <div class="sidebar-wrapper">
-              <ul class="nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="home.php">
-                        <i class="material-icons">dashboard</i>
-                        <p>Dashboard</p>
-                    </a>
-                </li>
-                <li class="nav-item ">
-                    <a class="nav-link" href="bill_and_payment.php">
-                        <i class="material-icons">content_copy</i>
-                        <p>Bill and payment</p>
-                    </a>
-                </li>
-                <li class="nav-item ">
-                    <a class="nav-link" href="room_management.php">
-                        <i class="fa fa-bed"></i>
-                        <p>Room management</p>
-                    </a>
-                </li>
-                <li class="nav-item ">
-                    <a class="nav-link" href="food_and_beverage.php">
-                        <i class="fa fa-cutlery"></i>
-                        <p>Food and beverage</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="booking.php">
-                        <i class="fa fa-users"></i>
-                        <p>Booking</p>
-                    </a>
-                </li>
-                 <li class="nav-item active">
-                    <a class="nav-link inv" style="cursor: pointer;">
-                      <i class="fa fa-book"></i>
-                        <p>Inventory <i class="fa fa-caret-down" style="float: right;"></i></p>
-                    </a>
-                    <div class="dropdown-container" style="display: none;">
-                        <a class="nav-link" href="inventory.php">
-                            <i class="fa fa-plus"></i>
-                            <p>Add Items / Foods</p>
-                        </a>
-                         <a class="nav-link" href="assign_item.php">
-                            <i class="fa fa-sliders"></i>
-                            <p>Items Assign</p>
-                        </a>
-                    </div>
-                </li>
-                <li class="nav-item ">
-                    <a class="nav-link" href="settings.php">
-                        <i class="fa fa-cog"></i>
-                        <p>Settings</p>
-                    </a>
-                </li>
-              </ul>
-            </div>
+            <?php include('../include/sideMenu.php'); ?>
+            
         </div>
         <div class="main-panel">
             <!-- Navbar -->
@@ -665,11 +611,11 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row">
+                                        <div class="row" style="display: none;">
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="bmd-label-floating">Quantity<span style="color: red;">*<span></label>
-                                                    <input type="text" class="form-control" id="quantity" name="quantity" required>
+                                                    <input type="text" class="form-control" id="quantity" name="quantity" value="0">
                                                 </div>
                                             </div>
                                         </div>

@@ -48,52 +48,8 @@
               </a>
             </div>
             <!-- nav bar  -->
-            <div class="sidebar-wrapper">
-              <ul class="nav">
-                <li class="nav-item ">
-                    <a class="nav-link" href="home.php">
-                        <i class="material-icons">dashboard</i>
-                        <p>Dashboard</p>
-                    </a>
-                </li>
-                <li class="nav-item ">
-                    <a class="nav-link" href="bill_and_payment.php">
-                        <i class="material-icons">content_copy</i>
-                        <p>Bill and payment</p>
-                    </a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="room_management.php">
-                        <i class="fa fa-bed"></i>
-                        <p>Room management</p>
-                    </a>
-                </li>
-                <li class="nav-item ">
-                    <a class="nav-link" href="food_and_beverage.php">
-                        <i class="fa fa-cutlery"></i>
-                        <p>Food and beverage</p>
-                    </a>
-                </li>
-                <li class="nav-item ">
-                    <a class="nav-link" href="booking.php">
-                        <i class="fa fa-users"></i>
-                        <p>Booking</p>
-                    </a>
-                </li>
-                 <li class="nav-item ">
-                    <a class="nav-link" href="inventory.php">
-                      <i class="fa fa-book"></i>
-                        <p>Inventory</p>
-                    </a>
-                </li>
-                <li class="nav-item ">
-                    <a class="nav-link" href="settings.php">
-                         <i class="fa fa-cog"></i>
-                        <p>Settings</p>
-                    </a>
-                </li>
-              </ul>
-            </div>
+            <?php include('../include/sideMenu.php'); ?>
+            
         </div>
         <div class="main-panel">
             <!-- Navbar -->
