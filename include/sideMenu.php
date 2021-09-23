@@ -55,7 +55,7 @@
         </div>
     </li>
 
-    <li class="nav-item <?php  if(basename($_SERVER['PHP_SELF'])=='employee.php'){ echo "active";}  ?>">
+    <li class="nav-item <?php  if(basename($_SERVER['PHP_SELF'])=='employee.php' || basename($_SERVER['PHP_SELF'])=='employee.php' || basename($_SERVER['PHP_SELF'])=='account_settings.php'){ echo "active";}  ?>">
         <a class="nav-link inv" style="cursor: pointer;">
             <i class="fa fa-file-o"></i>
             <p>Account <i class="fa fa-caret-down" style="float: right;"></i></p>

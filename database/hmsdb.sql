@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Sep 20, 2021 at 02:54 PM
+-- Generation Time: Sep 23, 2021 at 09:02 AM
 -- Server version: 5.6.38
 -- PHP Version: 7.2.1
 
@@ -174,6 +174,48 @@ INSERT INTO `category` (`id`, `name`, `isFood`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `designation`
+--
+
+CREATE TABLE `designation` (
+  `id` int(11) NOT NULL,
+  `name` varchar(150) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `designation`
+--
+
+INSERT INTO `designation` (`id`, `name`) VALUES
+(1, 'A'),
+(2, 'B');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `employee`
+--
+
+CREATE TABLE `employee` (
+  `id` int(11) NOT NULL,
+  `emp_id` varchar(50) NOT NULL,
+  `name` varchar(150) NOT NULL,
+  `des_id` int(11) NOT NULL,
+  `address` varchar(250) NOT NULL,
+  `phoneNo` varchar(50) NOT NULL,
+  `join_date` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `employee`
+--
+
+INSERT INTO `employee` (`id`, `emp_id`, `name`, `des_id`, `address`, `phoneNo`, `join_date`) VALUES
+(1, 'EMP-00001', 'Hasitha ', 2, 'No 01,\\r\\nGalkaudwa\\r\\nNeboda', '0704867765', '2021-09-23');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `foodinfor`
 --
 
@@ -278,7 +320,7 @@ CREATE TABLE `roominfor` (
 INSERT INTO `roominfor` (`id`, `roomno`, `roomtype`, `numbed`, `roomprice`, `roomstatus`, `createdate`, `lastupdate`, `bookingtime`) VALUES
 (2, '101', 'test', 2, '1000.00', '0', '2018-05-23 (16:15:58)', '2020-02-08 (10:54:34)', '2020-02-10 (11:34:35)'),
 (3, '113', '345', 234, '34.00', '0', '2020-02-08 (16:00:38)', '', '2020-02-10 (11:28:55)'),
-(4, '107', 'Dulex', 2, '55.00', '0', '2020-02-09 (12:23:21)', NULL, '2020-02-10 (11:33:38)'),
+(4, '107', 'Dulex', 2, '55.00', '0', '2020-02-09 (12:23:21)', '2021-09-20 (18:01:57)', '2020-02-10 (11:33:38)'),
 (5, '123', 'D1', 2, '12.00', '0', '2020-02-10 (08:57:23)', NULL, '2020-02-10 (11:35:08)');
 
 -- --------------------------------------------------------
@@ -358,6 +400,18 @@ ALTER TABLE `category`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `designation`
+--
+ALTER TABLE `designation`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `employee`
+--
+ALTER TABLE `employee`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `foodinfor`
 --
 ALTER TABLE `foodinfor`
@@ -425,7 +479,19 @@ ALTER TABLE `bookinginfor`
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `designation`
+--
+ALTER TABLE `designation`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `employee`
+--
+ALTER TABLE `employee`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `foodinfor`
