@@ -57,7 +57,7 @@
                                            <div class="col-md-4">
                                               <div class="form-group">
                                                   <label class="bmd-label-floating">Designation Name<span style="color: red;"> *<span></label>
-                                                  <input type="text" class="form-control" id="dname" name="dname">
+                                                  <input type="text" class="form-control" id="dname" name="dname" required>
                                               </div>
                                            </div>
 

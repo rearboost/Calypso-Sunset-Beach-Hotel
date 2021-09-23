@@ -3,12 +3,14 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Sep 23, 2021 at 09:02 AM
+-- Generation Time: Sep 23, 2021 at 10:26 AM
 -- Server version: 5.6.38
 -- PHP Version: 7.2.1
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
+SET SQL_MODE
+= "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone
+= "+00:00";
 
 --
 -- Database: `hmsdb`
@@ -20,26 +22,44 @@ SET time_zone = "+00:00";
 -- Table structure for table `addbillinfor`
 --
 
-CREATE TABLE `addbillinfor` (
-  `id` int(11) NOT NULL,
-  `foodid` int(11) NOT NULL,
-  `foodname` varchar(500) NOT NULL,
-  `foodsize` varchar(500) NOT NULL,
-  `foodquantity` int(11) NOT NULL,
-  `description` varchar(1000) NOT NULL,
-  `tootalprice` decimal(10,2) NOT NULL,
-  `roomnoid` int(11) NOT NULL,
-  `cbnic` varchar(500) NOT NULL,
-  `cbname` varchar(500) NOT NULL,
-  `createdate` varchar(500) NOT NULL,
-  `status` varchar(20) DEFAULT NULL
+CREATE TABLE `addbillinfor`
+(
+  `id` int
+(11) NOT NULL,
+  `foodid` int
+(11) NOT NULL,
+  `foodname` varchar
+(500) NOT NULL,
+  `foodsize` varchar
+(500) NOT NULL,
+  `foodquantity` int
+(11) NOT NULL,
+  `description` varchar
+(1000) NOT NULL,
+  `tootalprice` decimal
+(10,2) NOT NULL,
+  `roomnoid` int
+(11) NOT NULL,
+  `cbnic` varchar
+(500) NOT NULL,
+  `cbname` varchar
+(500) NOT NULL,
+  `createdate` varchar
+(500) NOT NULL,
+  `status` varchar
+(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `addbillinfor`
 --
 
-INSERT INTO `addbillinfor` (`id`, `foodid`, `foodname`, `foodsize`, `foodquantity`, `description`, `tootalprice`, `roomnoid`, `cbnic`, `cbname`, `createdate`, `status`) VALUES
+INSERT INTO `addbillinfor` (`
+id`,
+`foodid`,
+`foodname`,
+`foodsize
+`, `foodquantity`, `description`, `tootalprice`, `roomnoid`, `cbnic`, `cbname`, `createdate`, `status`) VALUES
 (1, 1, 'Rice', 'medium', 12, '', '1068.00', 1, '234534567v', 'test', '2018-05-13 (13:24:18)', NULL),
 (2, 1, 'Rice', 'medium', 6, '', '534.00', 2, '435353678', 'buddhika', '2018-05-28 (05:46:38)', '1'),
 (3, 1, 'Rice', 'small', 12, '', '672.00', 2, '435353678', 'buddhika', '2018-05-30 (18:14:03)', NULL),
@@ -67,19 +87,28 @@ INSERT INTO `addbillinfor` (`id`, `foodid`, `foodname`, `foodsize`, `foodquantit
 -- Table structure for table `assign_items`
 --
 
-CREATE TABLE `assign_items` (
-  `id` int(11) NOT NULL,
-  `room_id` int(11) NOT NULL,
-  `item_id` int(11) NOT NULL,
-  `quantity` decimal(10,2) NOT NULL,
-  `description` varchar(1000) NOT NULL
+CREATE TABLE `assign_items`
+(
+  `id` int
+(11) NOT NULL,
+  `room_id` int
+(11) NOT NULL,
+  `item_id` int
+(11) NOT NULL,
+  `quantity` decimal
+(10,2) NOT NULL,
+  `description` varchar
+(1000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `assign_items`
 --
 
-INSERT INTO `assign_items` (`id`, `room_id`, `item_id`, `quantity`, `description`) VALUES
+INSERT INTO `assign_items` (`
+id`,
+`room_id
+`, `item_id`, `quantity`, `description`) VALUES
 (1, 3, 2, '1.00', 'Not '),
 (2, 3, 2, '0.00', 'NOU');
 
@@ -89,18 +118,26 @@ INSERT INTO `assign_items` (`id`, `room_id`, `item_id`, `quantity`, `description
 -- Table structure for table `bad_items`
 --
 
-CREATE TABLE `bad_items` (
-  `id` int(11) NOT NULL,
-  `item_id` int(11) NOT NULL,
-  `quantity` decimal(10,2) NOT NULL,
-  `reson` varchar(1000) NOT NULL
+CREATE TABLE `bad_items`
+(
+  `id` int
+(11) NOT NULL,
+  `item_id` int
+(11) NOT NULL,
+  `quantity` decimal
+(10,2) NOT NULL,
+  `reson` varchar
+(1000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `bad_items`
 --
 
-INSERT INTO `bad_items` (`id`, `item_id`, `quantity`, `reson`) VALUES
+INSERT INTO `bad_items` (`
+id`,
+`item_id
+`, `quantity`, `reson`) VALUES
 (1, 2, '1.00', 'Damage'),
 (2, 2, '1.00', 'A'),
 (3, 2, '1.00', 'AAA'),
@@ -114,32 +151,62 @@ INSERT INTO `bad_items` (`id`, `item_id`, `quantity`, `reson`) VALUES
 -- Table structure for table `bookinginfor`
 --
 
-CREATE TABLE `bookinginfor` (
-  `id` int(11) NOT NULL,
-  `bookingno` varchar(500) NOT NULL,
-  `cname` varchar(500) NOT NULL,
-  `cnic` varchar(500) NOT NULL,
-  `bookby` varchar(500) NOT NULL,
-  `arrivaldate` varchar(100) NOT NULL,
-  `departuredate` varchar(100) NOT NULL,
-  `numofpeo` varchar(100) NOT NULL,
-  `connum` varchar(100) NOT NULL,
-  `address` varchar(500) NOT NULL,
-  `alocatedroom` varchar(100) NOT NULL,
-  `roomprice` decimal(10,2) NOT NULL,
-  `discount` decimal(10,2) NOT NULL,
-  `checkDiscount` varchar(20) NOT NULL,
-  `billstatus` varchar(200) NOT NULL,
-  `createdate` varchar(100) NOT NULL,
-  `billstaledate` varchar(500) DEFAULT NULL,
-  `ftootalprice` decimal(10,2) NOT NULL DEFAULT '0.00'
+CREATE TABLE `bookinginfor`
+(
+  `id` int
+(11) NOT NULL,
+  `bookingno` varchar
+(500) NOT NULL,
+  `cname` varchar
+(500) NOT NULL,
+  `cnic` varchar
+(500) NOT NULL,
+  `bookby` varchar
+(500) NOT NULL,
+  `arrivaldate` varchar
+(100) NOT NULL,
+  `departuredate` varchar
+(100) NOT NULL,
+  `numofpeo` varchar
+(100) NOT NULL,
+  `connum` varchar
+(100) NOT NULL,
+  `address` varchar
+(500) NOT NULL,
+  `alocatedroom` varchar
+(100) NOT NULL,
+  `roomprice` decimal
+(10,2) NOT NULL,
+  `discount` decimal
+(10,2) NOT NULL,
+  `checkDiscount` varchar
+(20) NOT NULL,
+  `billstatus` varchar
+(200) NOT NULL,
+  `createdate` varchar
+(100) NOT NULL,
+  `billstaledate` varchar
+(500) DEFAULT NULL,
+  `ftootalprice` decimal
+(10,2) NOT NULL DEFAULT '0.00'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `bookinginfor`
 --
 
-INSERT INTO `bookinginfor` (`id`, `bookingno`, `cname`, `cnic`, `bookby`, `arrivaldate`, `departuredate`, `numofpeo`, `connum`, `address`, `alocatedroom`, `roomprice`, `discount`, `checkDiscount`, `billstatus`, `createdate`, `billstaledate`, `ftootalprice`) VALUES
+INSERT INTO `bookinginfor` (`
+id`,
+`bookingno`,
+`cname`,
+`cnic`,
+`bookby`,
+`arrivaldate`,
+`departuredate`,
+`numofpeo`,
+`connum`,
+`address
+`, `alocatedroom`, `roomprice`, `discount`, `checkDiscount`, `billstatus`, `createdate`, `billstaledate`, `ftootalprice`) VALUES
 (1, '1', 'test', '234534567v', 'asd', '2018-05-05', '2018-05-08', '2', '123', 'asd', '1', '10000.00', '7.00', '', '1', '2018-05-10 (12:38:55)', '2018-05-13', '81063.00'),
 (2, '1234', 'buddhika', '435353678', 'test', '2018-05-23', '2018-05-24', '2', '4848888', 'test', '2', '1000.00', '10.00', '', '1', '2018-05-23 (16:25:00)', '2020-02-01', '620196.00'),
 (3, '0001', 'Test', '3432524234', 'Me ', '2020-02-04', '2020-02-05', '6', '080987786587', 'No1 , Galkaduwa\\nNeboda', '2', '1000.00', '6.00', '', '1', '2020-02-04 (14:44:58)', '2020-02-22', '17994.00'),
@@ -157,17 +224,24 @@ INSERT INTO `bookinginfor` (`id`, `bookingno`, `cname`, `cnic`, `bookby`, `arriv
 -- Table structure for table `category`
 --
 
-CREATE TABLE `category` (
-  `id` int(11) NOT NULL,
-  `name` varchar(250) NOT NULL,
-  `isFood` varchar(20) NOT NULL
+CREATE TABLE `category`
+(
+  `id` int
+(11) NOT NULL,
+  `name` varchar
+(250) NOT NULL,
+  `isFood` varchar
+(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `category`
 --
 
-INSERT INTO `category` (`id`, `name`, `isFood`) VALUES
+INSERT INTO `category` (`
+id`,
+`name
+`, `isFood`) VALUES
 (1, 'A', 'on'),
 (2, 'B', 'off');
 
@@ -177,18 +251,25 @@ INSERT INTO `category` (`id`, `name`, `isFood`) VALUES
 -- Table structure for table `designation`
 --
 
-CREATE TABLE `designation` (
-  `id` int(11) NOT NULL,
-  `name` varchar(150) NOT NULL
+CREATE TABLE `designation`
+(
+  `id` int
+(11) NOT NULL,
+  `name` varchar
+(150) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `designation`
 --
 
-INSERT INTO `designation` (`id`, `name`) VALUES
+INSERT INTO `designation` (`
+id`,
+`name
+`) VALUES
 (1, 'A'),
-(2, 'B');
+(2, 'B'),
+(3, '');
 
 -- --------------------------------------------------------
 
@@ -196,21 +277,32 @@ INSERT INTO `designation` (`id`, `name`) VALUES
 -- Table structure for table `employee`
 --
 
-CREATE TABLE `employee` (
-  `id` int(11) NOT NULL,
-  `emp_id` varchar(50) NOT NULL,
-  `name` varchar(150) NOT NULL,
-  `des_id` int(11) NOT NULL,
-  `address` varchar(250) NOT NULL,
-  `phoneNo` varchar(50) NOT NULL,
-  `join_date` varchar(100) NOT NULL
+CREATE TABLE `employee`
+(
+  `id` int
+(11) NOT NULL,
+  `emp_id` varchar
+(50) NOT NULL,
+  `name` varchar
+(150) NOT NULL,
+  `des_id` int
+(11) NOT NULL,
+  `address` varchar
+(250) NOT NULL,
+  `phoneNo` varchar
+(50) NOT NULL,
+  `join_date` varchar
+(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `employee`
 --
 
-INSERT INTO `employee` (`id`, `emp_id`, `name`, `des_id`, `address`, `phoneNo`, `join_date`) VALUES
+INSERT INTO `employee` (`
+id`,
+`emp_id
+`, `name`, `des_id`, `address`, `phoneNo`, `join_date`) VALUES
 (1, 'EMP-00001', 'Hasitha ', 2, 'No 01,\\r\\nGalkaudwa\\r\\nNeboda', '0704867765', '2021-09-23');
 
 -- --------------------------------------------------------
@@ -219,24 +311,38 @@ INSERT INTO `employee` (`id`, `emp_id`, `name`, `des_id`, `address`, `phoneNo`, 
 -- Table structure for table `foodinfor`
 --
 
-CREATE TABLE `foodinfor` (
-  `id` int(11) NOT NULL,
-  `foodcode` varchar(500) NOT NULL,
-  `foodname` varchar(500) NOT NULL,
-  `description` varchar(500) NOT NULL,
-  `foodview` varchar(500) NOT NULL,
-  `category` varchar(500) NOT NULL,
-  `smallsize` decimal(10,2) NOT NULL,
-  `mediumsize` decimal(10,2) NOT NULL,
-  `largesize` decimal(10,2) NOT NULL,
-  `createdate` varchar(200) NOT NULL
+CREATE TABLE `foodinfor`
+(
+  `id` int
+(11) NOT NULL,
+  `foodcode` varchar
+(500) NOT NULL,
+  `foodname` varchar
+(500) NOT NULL,
+  `description` varchar
+(500) NOT NULL,
+  `foodview` varchar
+(500) NOT NULL,
+  `category` varchar
+(500) NOT NULL,
+  `smallsize` decimal
+(10,2) NOT NULL,
+  `mediumsize` decimal
+(10,2) NOT NULL,
+  `largesize` decimal
+(10,2) NOT NULL,
+  `createdate` varchar
+(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `foodinfor`
 --
 
-INSERT INTO `foodinfor` (`id`, `foodcode`, `foodname`, `description`, `foodview`, `category`, `smallsize`, `mediumsize`, `largesize`, `createdate`) VALUES
+INSERT INTO `foodinfor` (`
+id`,
+`foodcode
+`, `foodname`, `description`, `foodview`, `category`, `smallsize`, `mediumsize`, `largesize`, `createdate`) VALUES
 (1, 'CRT99', 'Rice', 'HHHH', 'images/185.jpg', 'breakfast', '56.00', '89.00', '0.00', '2018-05-13 (13:23:54)'),
 (2, '312', 'qweq', 'qeq', 'images/349.jpeg', 'lunch', '0.00', '0.00', '0.00', '2018-06-05 (15:02:13)'),
 (3, '232', 'WE', '3244\\n42342\\n4324', 'images/170.jpg', 'beverage', '12.00', '0.00', '0.00', '2020-02-09 (12:16:02)'),
@@ -248,22 +354,34 @@ INSERT INTO `foodinfor` (`id`, `foodcode`, `foodname`, `description`, `foodview`
 -- Table structure for table `Inventory`
 --
 
-CREATE TABLE `Inventory` (
-  `id` int(11) NOT NULL,
-  `item_id` varchar(250) NOT NULL,
-  `cat_id` int(11) NOT NULL,
-  `name` varchar(250) NOT NULL,
-  `measurement` varchar(100) DEFAULT NULL,
-  `quantity` decimal(10,2) NOT NULL,
-  `assign` decimal(10,2) NOT NULL DEFAULT '0.00',
-  `description` varchar(1000) NOT NULL
+CREATE TABLE `Inventory`
+(
+  `id` int
+(11) NOT NULL,
+  `item_id` varchar
+(250) NOT NULL,
+  `cat_id` int
+(11) NOT NULL,
+  `name` varchar
+(250) NOT NULL,
+  `measurement` varchar
+(100) DEFAULT NULL,
+  `quantity` decimal
+(10,2) NOT NULL,
+  `assign` decimal
+(10,2) NOT NULL DEFAULT '0.00',
+  `description` varchar
+(1000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `Inventory`
 --
 
-INSERT INTO `Inventory` (`id`, `item_id`, `cat_id`, `name`, `measurement`, `quantity`, `assign`, `description`) VALUES
+INSERT INTO `Inventory` (`
+id`,
+`item_id
+`, `cat_id`, `name`, `measurement`, `quantity`, `assign`, `description`) VALUES
 (1, 'INV-00001', 2, 'TV', '', '6.00', '0.00', 'Good TB '),
 (2, 'INV-00002', 2, 'Bed', '', '14.00', '3.00', 'Good Bed'),
 (3, 'INV-00003', 2, 'UI', '', '12.00', '0.00', 'New \\r\\nDoc'),
@@ -273,24 +391,65 @@ INSERT INTO `Inventory` (`id`, `item_id`, `cat_id`, `name`, `measurement`, `quan
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `payment`
+--
+
+CREATE TABLE `payment`
+(
+  `p_id` int
+(11) NOT NULL,
+  `emp_id` int
+(11) NOT NULL,
+  `amount` decimal
+(10,2) NOT NULL,
+  `description` varchar
+(500) NOT NULL,
+  `date` varchar
+(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `payment`
+--
+
+INSERT INTO `payment` (`
+p_id`,
+`emp_id
+`, `amount`, `description`, `date`) VALUES
+(1, 1, '2000.00', 'HH:\\r\\nUU', '2021-09-23');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `purchase`
 --
 
-CREATE TABLE `purchase` (
-  `id` int(11) NOT NULL,
-  `cat_id` int(11) NOT NULL,
-  `item_id` int(11) NOT NULL,
-  `quantity` decimal(10,2) NOT NULL,
-  `price` decimal(10,2) NOT NULL,
-  `note` varchar(1000) NOT NULL,
-  `cdate` varchar(30) NOT NULL
+CREATE TABLE `purchase`
+(
+  `id` int
+(11) NOT NULL,
+  `cat_id` int
+(11) NOT NULL,
+  `item_id` int
+(11) NOT NULL,
+  `quantity` decimal
+(10,2) NOT NULL,
+  `price` decimal
+(10,2) NOT NULL,
+  `note` varchar
+(1000) NOT NULL,
+  `cdate` varchar
+(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `purchase`
 --
 
-INSERT INTO `purchase` (`id`, `cat_id`, `item_id`, `quantity`, `price`, `note`, `cdate`) VALUES
+INSERT INTO `purchase` (`
+id`,
+`cat_id
+`, `item_id`, `quantity`, `price`, `note`, `cdate`) VALUES
 (1, 2, 2, '5.00', '5000.00', 'New Bed ', '2021-09-20'),
 (2, 2, 1, '2.00', '6500.00', 'New', '2021-09-20'),
 (3, 2, 2, '4.00', '5000.00', 'N\\r\\nU', '2021-09-20');
@@ -301,23 +460,36 @@ INSERT INTO `purchase` (`id`, `cat_id`, `item_id`, `quantity`, `price`, `note`, 
 -- Table structure for table `roominfor`
 --
 
-CREATE TABLE `roominfor` (
-  `id` int(11) NOT NULL,
-  `roomno` varchar(500) NOT NULL,
-  `roomtype` varchar(1000) NOT NULL,
-  `numbed` int(11) NOT NULL,
-  `roomprice` decimal(10,2) NOT NULL,
-  `roomstatus` varchar(200) NOT NULL,
-  `createdate` varchar(500) NOT NULL,
-  `lastupdate` varchar(500) DEFAULT NULL,
-  `bookingtime` varchar(100) DEFAULT NULL
+CREATE TABLE `roominfor`
+(
+  `id` int
+(11) NOT NULL,
+  `roomno` varchar
+(500) NOT NULL,
+  `roomtype` varchar
+(1000) NOT NULL,
+  `numbed` int
+(11) NOT NULL,
+  `roomprice` decimal
+(10,2) NOT NULL,
+  `roomstatus` varchar
+(200) NOT NULL,
+  `createdate` varchar
+(500) NOT NULL,
+  `lastupdate` varchar
+(500) DEFAULT NULL,
+  `bookingtime` varchar
+(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `roominfor`
 --
 
-INSERT INTO `roominfor` (`id`, `roomno`, `roomtype`, `numbed`, `roomprice`, `roomstatus`, `createdate`, `lastupdate`, `bookingtime`) VALUES
+INSERT INTO `roominfor` (`
+id`,
+`roomno
+`, `roomtype`, `numbed`, `roomprice`, `roomstatus`, `createdate`, `lastupdate`, `bookingtime`) VALUES
 (2, '101', 'test', 2, '1000.00', '0', '2018-05-23 (16:15:58)', '2020-02-08 (10:54:34)', '2020-02-10 (11:34:35)'),
 (3, '113', '345', 234, '34.00', '0', '2020-02-08 (16:00:38)', '', '2020-02-10 (11:28:55)'),
 (4, '107', 'Dulex', 2, '55.00', '0', '2020-02-09 (12:23:21)', '2021-09-20 (18:01:57)', '2020-02-10 (11:33:38)'),
@@ -329,17 +501,24 @@ INSERT INTO `roominfor` (`id`, `roomno`, `roomtype`, `numbed`, `roomprice`, `roo
 -- Table structure for table `signup`
 --
 
-CREATE TABLE `signup` (
-  `id` int(11) NOT NULL,
-  `username` varchar(500) NOT NULL,
-  `password` varchar(500) NOT NULL
+CREATE TABLE `signup`
+(
+  `id` int
+(11) NOT NULL,
+  `username` varchar
+(500) NOT NULL,
+  `password` varchar
+(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `signup`
 --
 
-INSERT INTO `signup` (`id`, `username`, `password`) VALUES
+INSERT INTO `signup` (`
+id`,
+`username
+`, `password`) VALUES
 (1, 'admin', '698d51a19d8a121ce581499d7b701668'),
 (2, 'user', '698d51a19d8a121ce581499d7b701668');
 
@@ -349,20 +528,30 @@ INSERT INTO `signup` (`id`, `username`, `password`) VALUES
 -- Table structure for table `tempbill`
 --
 
-CREATE TABLE `tempbill` (
-  `id` int(11) NOT NULL,
-  `bnic` varchar(500) NOT NULL,
-  `bname` varchar(500) NOT NULL,
-  `bdec` varchar(500) NOT NULL,
-  `bprice` decimal(10,2) NOT NULL,
-  `bcreatedate` varchar(500) NOT NULL
+CREATE TABLE `tempbill`
+(
+  `id` int
+(11) NOT NULL,
+  `bnic` varchar
+(500) NOT NULL,
+  `bname` varchar
+(500) NOT NULL,
+  `bdec` varchar
+(500) NOT NULL,
+  `bprice` decimal
+(10,2) NOT NULL,
+  `bcreatedate` varchar
+(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `tempbill`
 --
 
-INSERT INTO `tempbill` (`id`, `bnic`, `bname`, `bdec`, `bprice`, `bcreatedate`) VALUES
+INSERT INTO `tempbill` (`
+id`,
+`bnic
+`, `bname`, `bdec`, `bprice`, `bcreatedate`) VALUES
 (1, '6', 'TRR', '23', '445.00', '2020-02-10');
 
 --
@@ -373,79 +562,99 @@ INSERT INTO `tempbill` (`id`, `bnic`, `bname`, `bdec`, `bprice`, `bcreatedate`) 
 -- Indexes for table `addbillinfor`
 --
 ALTER TABLE `addbillinfor`
-  ADD PRIMARY KEY (`id`);
+ADD PRIMARY KEY
+(`id`);
 
 --
 -- Indexes for table `assign_items`
 --
 ALTER TABLE `assign_items`
-  ADD PRIMARY KEY (`id`);
+ADD PRIMARY KEY
+(`id`);
 
 --
 -- Indexes for table `bad_items`
 --
 ALTER TABLE `bad_items`
-  ADD PRIMARY KEY (`id`);
+ADD PRIMARY KEY
+(`id`);
 
 --
 -- Indexes for table `bookinginfor`
 --
 ALTER TABLE `bookinginfor`
-  ADD PRIMARY KEY (`id`);
+ADD PRIMARY KEY
+(`id`);
 
 --
 -- Indexes for table `category`
 --
 ALTER TABLE `category`
-  ADD PRIMARY KEY (`id`);
+ADD PRIMARY KEY
+(`id`);
 
 --
 -- Indexes for table `designation`
 --
 ALTER TABLE `designation`
-  ADD PRIMARY KEY (`id`);
+ADD PRIMARY KEY
+(`id`);
 
 --
 -- Indexes for table `employee`
 --
 ALTER TABLE `employee`
-  ADD PRIMARY KEY (`id`);
+ADD PRIMARY KEY
+(`id`);
 
 --
 -- Indexes for table `foodinfor`
 --
 ALTER TABLE `foodinfor`
-  ADD PRIMARY KEY (`id`);
+ADD PRIMARY KEY
+(`id`);
 
 --
 -- Indexes for table `Inventory`
 --
 ALTER TABLE `Inventory`
-  ADD PRIMARY KEY (`id`);
+ADD PRIMARY KEY
+(`id`);
+
+--
+-- Indexes for table `payment`
+--
+ALTER TABLE `payment`
+ADD PRIMARY KEY
+(`p_id`);
 
 --
 -- Indexes for table `purchase`
 --
 ALTER TABLE `purchase`
-  ADD PRIMARY KEY (`id`);
+ADD PRIMARY KEY
+(`id`);
 
 --
 -- Indexes for table `roominfor`
 --
 ALTER TABLE `roominfor`
-  ADD PRIMARY KEY (`id`);
+ADD PRIMARY KEY
+(`id`);
 
 --
 -- Indexes for table `signup`
 --
 ALTER TABLE `signup`
-  ADD PRIMARY KEY (`id`);
+ADD PRIMARY KEY
+(`id`);
 
 --
 -- Indexes for table `tempbill`
 --
 ALTER TABLE `tempbill`
-  ADD PRIMARY KEY (`id`);
+ADD PRIMARY KEY
+(`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -455,76 +664,96 @@ ALTER TABLE `tempbill`
 -- AUTO_INCREMENT for table `addbillinfor`
 --
 ALTER TABLE `addbillinfor`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int
+(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `assign_items`
 --
 ALTER TABLE `assign_items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int
+(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `bad_items`
 --
 ALTER TABLE `bad_items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int
+(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `bookinginfor`
 --
 ALTER TABLE `bookinginfor`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int
+(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int
+(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `designation`
 --
 ALTER TABLE `designation`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int
+(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `employee`
 --
 ALTER TABLE `employee`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int
+(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `foodinfor`
 --
 ALTER TABLE `foodinfor`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int
+(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `Inventory`
 --
 ALTER TABLE `Inventory`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int
+(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `payment`
+--
+ALTER TABLE `payment`
+  MODIFY `p_id` int
+(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `purchase`
 --
 ALTER TABLE `purchase`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int
+(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `roominfor`
 --
 ALTER TABLE `roominfor`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int
+(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `signup`
 --
 ALTER TABLE `signup`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int
+(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tempbill`
 --
 ALTER TABLE `tempbill`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int
+(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;

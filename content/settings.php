@@ -145,13 +145,13 @@
                                            <div class="col-md-4">
                                               <div class="form-group">
                                                   <label class="bmd-label-floating">Category Name<span style="color: red;">*<span></label>
-                                                  <input type="text" class="form-control" id="cname" name="cname">
+                                                  <input type="text" class="form-control" id="cname" name="cname" required>
                                               </div>
                                            </div>
                                             <div class="col-md-4" style="margin-bottom: 1%;">
                                                 <div class="form-group">
                                                     <label class="bmd-label-floating">Is Food<span style="color: red;">*<span></label>
-                                                      <select  class="form-control" id="isFood" name="isFood">
+                                                      <select  class="form-control" id="isFood" name="isFood" required>
                                                         <option value="">Select</option>
                                                         <option value="on">Food</option>
                                                         <option value="off">Non Food</option>

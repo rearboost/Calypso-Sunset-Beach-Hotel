@@ -55,7 +55,7 @@
         </div>
     </li>
 
-    <li class="nav-item <?php  if(basename($_SERVER['PHP_SELF'])=='employee.php' || basename($_SERVER['PHP_SELF'])=='employee.php' || basename($_SERVER['PHP_SELF'])=='account_settings.php'){ echo "active";}  ?>">
+    <li class="nav-item <?php  if(basename($_SERVER['PHP_SELF'])=='employee.php' || basename($_SERVER['PHP_SELF'])=='payment.php' || basename($_SERVER['PHP_SELF'])=='account_settings.php'){ echo "active";}  ?>">
         <a class="nav-link inv" style="cursor: pointer;">
             <i class="fa fa-file-o"></i>
             <p>Account <i class="fa fa-caret-down" style="float: right;"></i></p>
@@ -65,12 +65,12 @@
                 <i class="fa fa-user-o"></i>
                 <p><b>Add Employee</b></p>
             </a>
-            <a class="nav-link" href="employee.php">
-                <i class="fa fa-user-o"></i>
+            <a class="nav-link" href="payment.php">
+                <i class="fa fa-credit-card"></i>
                 <p><b>Payment</b></p>
             </a>  
              <a class="nav-link" href="account_settings.php">
-                <i class="fa fa-user-o"></i>
+                <i class="fa fa-sun-o"></i>
                 <p><b>Account Settings</b></p>
             </a>         
         </div>
