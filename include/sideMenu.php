@@ -64,7 +64,15 @@
             <a class="nav-link" href="employee.php">
                 <i class="fa fa-user-o"></i>
                 <p><b>Add Employee</b></p>
-            </a>      
+            </a>
+            <a class="nav-link" href="employee.php">
+                <i class="fa fa-user-o"></i>
+                <p><b>Payment</b></p>
+            </a>  
+             <a class="nav-link" href="account_settings.php">
+                <i class="fa fa-user-o"></i>
+                <p><b>Account Settings</b></p>
+            </a>         
         </div>
     </li>    
     <li class="nav-item <?php  if(basename($_SERVER['PHP_SELF'])=='settings.php'){ echo "active";}  ?>">
