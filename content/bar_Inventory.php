@@ -1,6 +1,8 @@
 <!-- nexgenITs HMS System All right reseverd.-->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"> 
+
+
 <?php
     // Database connection
     require '../include/config.php';
@@ -10,18 +12,20 @@
     if(isset($_GET['prop_id']))
     {
       $getID = $_GET['prop_id'];
-      $query = "SELECT * FROM roominfor WHERE id ='$getID'";
+      $query = "SELECT * FROM bar_inventory WHERE id ='$getID'";
       $result = mysqli_query($conn ,$query);
       while($row = mysqli_fetch_array($result))
       {
          $roomid =$row["id"]; 
-         $roomno =$row["roomno"];
-         $roomtype =$row["roomtype"];
-         $numbed =$row["numbed"];
-         $roomprice =$row["roomprice"];
+         $roomno =$row["lq_name"];
+         $roomtype =$row["qty"];
+         $numbed =$row["pur_price"];
+         $roomprice =$row["selling_price"];
       }
     }
 ?>
+
+
 <head>
 
     <!-- Favicons -->
@@ -63,15 +67,15 @@
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="card-header card-header-primary">
-                                    <h4 class="card-title">Room management</h4>
-                                    <p class="card-category">Information</p>
+                                    <h4 class="card-title">Bar Inventory</h4>
+                                    <p class="card-category">Add / Update liquor details</p>
                                 </div>
                                 <div class="card-body">
                                     <form id="room_form">
                                         <div class="row">
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label class="bmd-label-floating">Room No <span style="color: red;">*<span></label>
+                                                    <label class="bmd-label-floating">Liquor Name <span style="color: red;">*<span></label>
                                                     <input type="text" class="form-control" id="roomno" value="<?php if(isset($roomno)){ echo $roomno;} ?>">
                                                     <input type="hidden" class="form-control" id="roomid" value="<?php if(isset($roomid)){ echo $roomid;} ?>">
                                                     <label id="roomno_error" class="error" for="roomno" style="display: none;  color: red; padding-top: 2%;">This field is required.</label>
@@ -79,14 +83,14 @@
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label class="bmd-label-floating">Room Type <span style="color: red;">*<span></label>
-                                                    <input type="text" class="form-control" id="roomtype" value="<?php if(isset($roomtype)){ echo $roomtype;} ?>">
+                                                    <label class="bmd-label-floating">Quntity <span style="color: red;">*<span></label>
+                                                    <input type="number" class="form-control" id="roomtype" value="<?php if(isset($roomtype)){ echo $roomtype;} ?>">
                                                     <label id="roomtype_error" class="error" for="roomtype" style="display: none;  color: red; padding-top: 2%;">This field is required.</label>
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label class="bmd-label-floating">Number of bed <span style="color: red;">*<span></label>
+                                                    <label class="bmd-label-floating">Purchase Price<span style="color: red;">*<span></label>
                                                     <input type="number" class="form-control" id="numbed" value="<?php if(isset($numbed)){ echo $numbed;} ?>">
                                                     <label id="numbed_error" class="error" for="numbed" style="display: none;  color: red; padding-top: 2%;">This field is required.</label>
                                                 </div>
@@ -95,13 +99,13 @@
                                         <div class="row">
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label class="bmd-label-floating">Room Price <span style="color: red;">*<span></label>
+                                                    <label class="bmd-label-floating">Selling Price <span style="color: red;">*<span></label>
                                                     <input type="number" class="form-control" id="roomprice" value="<?php if(isset($roomprice)){ echo $roomprice;} ?>">
                                                     <label id="roomprice_error" class="error" for="roomprice" style="display: none;  color: red; padding-top: 2%;">This field is required.</label>
                                                 </div>
                                             </div>
                                         </div>
-                                           <button type="button" class="btn btn-primary pull-right" onclick="window.location='http://localhost:8888/HMS/content/room_management.php'">Clear</button>
+                                           <button type="button" class="btn btn-primary pull-right" onclick="window.location='http://localhost:8888/HMS/content/bar_inventory.php'">Clear</button>
                                         <?php if (isset($_GET['prop_id'])): ?>
                                              <button type="button" class="btn btn-primary pull-right" id="room_btn_edit" name="room_btn_edit" onclick="roomFormedit()">Update Data</button>
                                         <?php else: ?>
@@ -117,28 +121,28 @@
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="card-header card-header-primary">
-                                    <h4 class="card-title ">Simple Table</h4>
-                                    <p class="card-category"> Here is a subtitle for this table</p>
+                                    <h4 class="card-title ">Bar Inventory</h4>
+                                    <p class="card-category"> Inventory Details</p>
                                 </div>
                                 <div class="card-body">
                                    <?php
-                                       $query = "SELECT * FROM roominfor";
+                                       $query = "SELECT * FROM bar_inventory";
                                        $result = mysqli_query($conn ,$query);
                                     ?>
                                     <div class="table-responsive" id="room_table">
                                         <table class="table">
                                             <thead class=" text-primary">
                                                 <th>
-                                                    Room No
+                                                    Liquor Name
                                                 </th>
                                                 <th>
-                                                    Room Type
+                                                    Quntity
                                                 </th>
                                                 <th>
-                                                    Number of bed
+                                                    purchase price
                                                 </th>
                                                 <th>
-                                                    Room Price
+                                                   Selling Price
                                                 </th>
                                                 <th>
 
@@ -153,13 +157,13 @@
                                                    {
                                                     echo '
                                                     <tr>
-                                                     <td>'.$row["roomno"].'</td>
-                                                     <td>'.$row["roomtype"].'</td>
-                                                     <td>'.$row["numbed"].'</td>
-                                                     <td>'.$row["roomprice"].'</td>
+                                                     <td>'.$row["lq_name"].'</td>
+                                                     <td>'.$row["qty"].'</td>
+                                                     <td>'.$row["pur_price"].'</td>
+                                                     <td>'.$row["selling_price"].'</td>
                                                      <td width="5%"><button type="button" id="delete_form" name="delete_form" onclick="roomremoveconf(event ,'.$row["id"].')" class="btn btn-primary edit_data" style="margin: 0px; height: 25px; width: 70px; color: white; border-color: #2CA8FF; background-color: #2CA8FF; font-size: 12px;  padding: 4px 10px; margin-top: 0px;">Delete</button></td>
                                                      '; ?>
-                                                     <td width="5%"><button type="button" id="edit_form" name="edit_form" onclick="window.location='./room_management.php?prop_id=<?php echo $row['id'];  ?>';" class="btn btn-primary edit_data" style="margin: 0px; height: 25px; width: 70px; color: white; border-color: #2CA8FF; background-color: #2CA8FF; font-size: 12px;  padding: 4px 10px; margin-top: 0px;">Edit</button></td>
+                                                     <td width="5%"><button type="button" id="edit_form" name="edit_form" onclick="window.location='./bar_inventory.php?prop_id=<?php echo $row['id'];  ?>';" class="btn btn-primary edit_data" style="margin: 0px; height: 25px; width: 70px; color: white; border-color: #2CA8FF; background-color: #2CA8FF; font-size: 12px;  padding: 4px 10px; margin-top: 0px;">Edit</button></td>
                                                      <?php
                                                      echo '
                                                     </tr>
@@ -184,7 +188,7 @@
                                     <h6 class="card-category text-gray">CEO / Co-Founder</h6>
                                     <h4 class="card-title">Alec Thompson</h4>
                                     <p class="card-description">
-                                        Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owensâ€™ bed design but the back is...
+                                        Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...
                                     </p>
                                     <a href="#pablo" class="btn btn-primary btn-round">Follow</a>
                                 </div>
@@ -314,7 +318,7 @@
        }
        else {
          $.ajax({
-              url:"../controller/controller_room.php",
+              url:"../controller/controller_bar_inventory.php",
               method:"POST",
               data:{roomno:roomno,roomtype:roomtype,numbed:numbed,roomprice:roomprice,room_btn_submit:room_btn_submit},
               success:function(data){
@@ -341,7 +345,7 @@
 
        var roomno =document.getElementById('roomno').value;
        var roomnocheck =document.getElementById('roomno').value;
-
+         
        var roomtype =document.getElementById('roomtype').value;
        var roomtypecheck =document.getElementById('roomtype').value;
 
@@ -356,7 +360,7 @@
 
         if(roomnocheck=='' && roomtypecheck=='' && numbedcheck=='' && roompricecheck==''){
           $('#roomno_error').css("display", "inherit");
-          $('#roomno').addClass('error');
+          $('#roomno').addClass('error'); 
 
           $('#roomtype_error').css("display", "inherit");
           $('#roomtype').addClass('error');
@@ -385,7 +389,7 @@
         }
         else {
           $.ajax({
-               url:"../controller/controller_room.php",
+               url:"../controller/controller_bar_inventory.php",
                method:"POST",
                data:{roomid:roomid,roomno:roomno,roomtype:roomtype,numbed:numbed,roomprice:roomprice,room_btn_edit:room_btn_edit},
                success:function(data){
@@ -411,7 +415,7 @@
         var delete_form =document.getElementById('delete_form').name;
 
         $.ajax({
-             url:"../controller/controller_room.php",
+             url:"../controller/controller_bar_inventory.php",
              method:"POST",
              data:{id:id,delete_form:delete_form},
              success:function(data){

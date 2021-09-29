@@ -40,6 +40,10 @@
                 <i class="fa fa-plus"></i>
                 <p><b>Add Items / Foods</b></p>
             </a>
+            <a class="nav-link" href="bar_Inventory.php">
+                <i class="fa fa-plus"></i>
+                <p><b>Add Bar Items</b></p>
+            </a>
                 <a class="nav-link" href="assign_item.php">
                 <i class="fa fa-sliders"></i>
                 <p><b>Items Assign</b></p>
