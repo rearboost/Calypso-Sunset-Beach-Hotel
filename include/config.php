@@ -2,12 +2,12 @@
 <?php
 	$severname = "localhost";
 	$username = "root";
-	$password = "root";
+	$password = "";
 	$db = "hmsdb";
 
 
 	$conn = mysqli_connect($severname,$username,$password);
-	mysqli_select_db($conn,$db);
+	mysqli_select_db($conn,$db); 
 
 	$dbh = new PDO("mysql:dbname={$db};host={$severname};port={3306}", $username, $password);
 

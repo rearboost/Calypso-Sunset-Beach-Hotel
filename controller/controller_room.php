@@ -6,7 +6,7 @@
 
       // Room form submit btn insert details php code strat
       if(isset($_POST['room_btn_submit']))
-      {
+      { 
         //  $roomid =mysqli_real_escape_string($conn ,$_POST['roomid']);
           $roomno =mysqli_real_escape_string($conn ,$_POST['roomno']);
 
@@ -14,7 +14,7 @@
           $numbed =mysqli_real_escape_string($conn ,$_POST['numbed']);
           $roomprice =mysqli_real_escape_string($conn ,$_POST['roomprice']);
 
-          $date =date('Y-m-d');
+          $date =date('Y-m-d'); 
           $time =date('H:i:s',time());
 
           $createdate =$date." (".$time.")";
@@ -22,7 +22,7 @@
           $rommstatus ="0";
 
           $queryin ="INSERT INTO  roominfor (roomno,roomtype,numbed,roomprice,roomstatus,createdate)  VALUES (?,?,?,?,?,?)";
-
+          w
           $stmt =mysqli_stmt_init($conn);
           if(!mysqli_stmt_prepare($stmt,$queryin))
           {

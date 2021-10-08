@@ -15,9 +15,37 @@
     <li class="nav-item <?php  if(basename($_SERVER['PHP_SELF'])=='room_management.php'){ echo "active";}  ?>">
         <a class="nav-link" href="room_management.php">
             <i class="fa fa-bed"></i>
-            <p>Room management</p>
+            <p>Room manage</p>
         </a>
     </li>
+    <li class="nav-item <?php  if(basename($_SERVER['PHP_SELF'])=='bar_recipes_creation.php' || basename($_SERVER['PHP_SELF'])=='room_bar_billing.php' || basename($_SERVER['PHP_SELF'])=='bar_setting.php'){ echo "active";}  ?>">
+        <a class="nav-link inv" style="cursor: pointer;">
+            <i class="fa fa-file-o"></i>
+            <p>Bar Manage<i class="fa fa-caret-down" style="float: right;"></i></p>
+        </a>
+        <div class="dropdown-container" style="display: none;">
+            <a class="nav-link" href="room_bar_billing.php">
+                <i class="fa fa-user-o"></i>
+                <p><b>Room Bar Billing</b></p>
+            </a>
+            <a class="nav-link" href="">
+                <i class="fa fa-credit-card"></i>
+                <p><b>Table Bar Billing</b></p>
+            </a>  
+             <a class="nav-link" href="">
+                <i class="fa fa-credit-card"></i>
+                <p><b>Token Bar Billing</b></p>
+            </a>  
+             <a class="nav-link" href="bar_recipes_creation.php">
+                <i class="fa fa-credit-card"></i>
+                <p><b>Recipes</b></p>
+            </a>  
+             <a class="nav-link" href="bar_setting.php">
+                <i class="fa fa-sun-o"></i>
+                <p><b>Bar Settings</b></p>
+            </a>         
+        </div>
+    </li>    
     <li class="nav-item <?php  if(basename($_SERVER['PHP_SELF'])=='food_and_beverage.php'){ echo "active";}  ?>">
         <a class="nav-link" href="food_and_beverage.php">
             <i class="fa fa-cutlery"></i>
@@ -30,6 +58,7 @@
             <p>Booking</p>
         </a>
     </li>
+
     <li class="nav-item <?php  if(basename($_SERVER['PHP_SELF'])=='inventory.php'|| basename($_SERVER['PHP_SELF'])=='assign_item.php' || basename($_SERVER['PHP_SELF'])=='bad_items.php' || basename($_SERVER['PHP_SELF'])=='purchase.php'){ echo "active";}  ?>">
         <a class="nav-link inv" style="cursor: pointer;">
             <i class="fa fa-book"></i>
