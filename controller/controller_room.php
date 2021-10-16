@@ -22,7 +22,7 @@
           $rommstatus ="0";
 
           $queryin ="INSERT INTO  roominfor (roomno,roomtype,numbed,roomprice,roomstatus,createdate)  VALUES (?,?,?,?,?,?)";
-          w
+          
           $stmt =mysqli_stmt_init($conn);
           if(!mysqli_stmt_prepare($stmt,$queryin))
           {

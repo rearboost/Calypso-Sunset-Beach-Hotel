@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 29, 2021 at 08:21 AM
+-- Generation Time: Oct 10, 2021 at 07:16 AM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 7.4.22
 
@@ -89,7 +89,8 @@ CREATE TABLE `assign_items` (
 INSERT INTO `assign_items` (`id`, `room_id`, `item_id`, `quantity`, `description`) VALUES
 (1, 3, 2, '1.00', 'Not '),
 (2, 3, 2, '0.00', 'NOU'),
-(3, 2, 6, '0.00', 'Entirtatment');
+(3, 2, 6, '0.00', 'Entirtatment'),
+(4, 0, 1, '50.00', '');
 
 -- --------------------------------------------------------
 
@@ -136,7 +137,61 @@ CREATE TABLE `bar_inventory` (
 --
 
 INSERT INTO `bar_inventory` (`id`, `lq_name`, `qty`, `pur_price`, `selling_price`) VALUES
-(1, 'jhsadjasd', 12, 2121, 3232);
+(1, 'Sri Lanka Special Arac', 3750, 2, 3);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `bar_recepies_tb`
+--
+
+CREATE TABLE `bar_recepies_tb` (
+  `Id` int(11) NOT NULL,
+  `rep_name` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `bar_recepies_tb`
+--
+
+INSERT INTO `bar_recepies_tb` (`Id`, `rep_name`) VALUES
+(9, 'suda'),
+(10, 'a1'),
+(11, 'a2');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `bar_rec_ingredients_tb`
+--
+
+CREATE TABLE `bar_rec_ingredients_tb` (
+  `Id` int(11) NOT NULL,
+  `lqu_id` int(11) NOT NULL,
+  `qty` int(11) NOT NULL,
+  `bar_rec_Id` int(11) NOT NULL,
+  `description` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `bar_table`
+--
+
+CREATE TABLE `bar_table` (
+  `Id` int(11) NOT NULL,
+  `table_ID` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `bar_table`
+--
+
+INSERT INTO `bar_table` (`Id`, `table_ID`) VALUES
+(1, 1),
+(2, 2),
+(3, 0);
 
 -- --------------------------------------------------------
 
@@ -179,7 +234,8 @@ INSERT INTO `bookinginfor` (`id`, `bookingno`, `cname`, `cnic`, `bookby`, `arriv
 (7, '323', 'SDS', '453453', 'ME', '2020-02-10', '2020-02-12', '23', '543656', 'No1 , Galkaduwa\\nNeboda', '5', '12.00', '4.00', 'on', '1', '2020-02-10 (11:30:05)', '2020-03-01', '0.00'),
 (8, '2342', 'WE', '34234', 'MMS', '2020-02-10', '2020-02-22', '2', '2342342', 'No1 , Galkaduwa\\nNeboda', '4', '55.00', '2.00', 'true', '1', '2020-02-10 (11:33:38)', '2021-09-16', '32118.00'),
 (9, '332', 'FG', '45353', 'MK', '2020-02-10', '2020-02-20', '2', '12', 'No1 , Galkaduwa\\nNeboda', '2', '1000.00', '67.00', 'true', '1', '2020-02-10 (11:34:35)', '2021-09-16', '583933.00'),
-(10, '342', '3424', '23424', '32424', '2020-02-10', '2020-02-14', '234', '213', 'No1 , Galkaduwa\\nNeboda', '5', '12.00', '6.00', 'false', '0', '2020-02-10 (11:35:08)', NULL, '0.00');
+(10, '342', '3424', '23424', '32424', '2020-02-10', '2020-02-14', '234', '213', 'No1 , Galkaduwa\\nNeboda', '5', '12.00', '6.00', 'false', '0', '2020-02-10 (11:35:08)', NULL, '0.00'),
+(11, '2', 'MalithK', '199325600216', 'nuwan', '2021-10-08', '2021-10-09', '2', '0773706004', 'No.17 , warakagoda , Neboda', '9', '120.00', '0.00', '', '0', '2021-10-08 (06:28:54)', NULL, '0.00');
 
 -- --------------------------------------------------------
 
@@ -199,6 +255,33 @@ CREATE TABLE `category` (
 
 INSERT INTO `category` (`id`, `name`, `isFood`) VALUES
 (5, 'Electric Items', 'off');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `designation`
+--
+
+CREATE TABLE `designation` (
+  `id` int(11) NOT NULL,
+  `name` varchar(150) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `employee`
+--
+
+CREATE TABLE `employee` (
+  `id` int(11) NOT NULL,
+  `emp_id` varchar(50) NOT NULL,
+  `name` varchar(150) NOT NULL,
+  `des_id` int(11) NOT NULL,
+  `address` varchar(250) NOT NULL,
+  `phoneNo` varchar(50) NOT NULL,
+  `join_date` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -251,12 +334,44 @@ CREATE TABLE `inventory` (
 --
 
 INSERT INTO `inventory` (`id`, `item_id`, `cat_id`, `name`, `measurement`, `quantity`, `assign`, `description`) VALUES
-(1, 'INV-00001', 2, 'TV', '', '6.00', '0.00', 'Good TB '),
+(1, 'INV-00001', 2, 'TV', '', '-44.00', '50.00', 'Good TB '),
 (2, 'INV-00002', 2, 'Bed', '', '14.00', '3.00', 'Good Bed'),
 (3, 'INV-00003', 2, 'UI', '', '12.00', '0.00', 'New \\r\\nDoc'),
 (4, 'INV-00004', 1, 'Food New', 'ml ', '2.00', '0.00', 'NOT GOD'),
 (5, 'INV-00005', 1, 'Food New 01', 'l', '0.00', '0.00', 'Not'),
 (6, 'INV-00006', 5, 'Abance TV 21', NULL, '14.00', '1.00', 'for rooms');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `lq_category`
+--
+
+CREATE TABLE `lq_category` (
+  `Id` int(11) NOT NULL,
+  `cat_name` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `lq_category`
+--
+
+INSERT INTO `lq_category` (`Id`, `cat_name`) VALUES
+(1, 'Arrac');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `payment`
+--
+
+CREATE TABLE `payment` (
+  `p_id` int(11) NOT NULL,
+  `emp_id` int(11) NOT NULL,
+  `amount` decimal(10,2) NOT NULL,
+  `description` varchar(500) NOT NULL,
+  `date` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -309,7 +424,7 @@ INSERT INTO `roominfor` (`id`, `roomno`, `roomtype`, `numbed`, `roomprice`, `roo
 (2, '101', 'test', 2, '1000.00', '0', '2018-05-23 (16:15:58)', '2020-02-08 (10:54:34)', '2020-02-10 (11:34:35)'),
 (3, '113', '345', 234, '34.00', '0', '2020-02-08 (16:00:38)', '', '2020-02-10 (11:28:55)'),
 (4, '107', 'Dulex', 2, '55.00', '0', '2020-02-09 (12:23:21)', NULL, '2020-02-10 (11:33:38)'),
-(9, '1111', 'sdasd', 32, '120.00', '0', '2021-09-27 (08:37:09)', '2021-09-27 (08:56:18)', NULL);
+(9, '1111', 'sdasd', 32, '120.00', '1', '2021-09-27 (08:37:09)', '2021-09-27 (08:56:18)', '2021-10-08 (06:28:54)');
 
 -- --------------------------------------------------------
 
@@ -382,6 +497,26 @@ ALTER TABLE `bar_inventory`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `bar_recepies_tb`
+--
+ALTER TABLE `bar_recepies_tb`
+  ADD PRIMARY KEY (`Id`);
+
+--
+-- Indexes for table `bar_rec_ingredients_tb`
+--
+ALTER TABLE `bar_rec_ingredients_tb`
+  ADD PRIMARY KEY (`Id`),
+  ADD KEY `Liq_id_FK` (`lqu_id`),
+  ADD KEY `bar_rec_id_FK` (`bar_rec_Id`);
+
+--
+-- Indexes for table `bar_table`
+--
+ALTER TABLE `bar_table`
+  ADD PRIMARY KEY (`Id`);
+
+--
 -- Indexes for table `bookinginfor`
 --
 ALTER TABLE `bookinginfor`
@@ -391,6 +526,18 @@ ALTER TABLE `bookinginfor`
 -- Indexes for table `category`
 --
 ALTER TABLE `category`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `designation`
+--
+ALTER TABLE `designation`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `employee`
+--
+ALTER TABLE `employee`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -404,6 +551,18 @@ ALTER TABLE `foodinfor`
 --
 ALTER TABLE `inventory`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `lq_category`
+--
+ALTER TABLE `lq_category`
+  ADD PRIMARY KEY (`Id`);
+
+--
+-- Indexes for table `payment`
+--
+ALTER TABLE `payment`
+  ADD PRIMARY KEY (`p_id`);
 
 --
 -- Indexes for table `purchase`
@@ -443,7 +602,7 @@ ALTER TABLE `addbillinfor`
 -- AUTO_INCREMENT for table `assign_items`
 --
 ALTER TABLE `assign_items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `bad_items`
@@ -458,16 +617,46 @@ ALTER TABLE `bar_inventory`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `bar_recepies_tb`
+--
+ALTER TABLE `bar_recepies_tb`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT for table `bar_rec_ingredients_tb`
+--
+ALTER TABLE `bar_rec_ingredients_tb`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `bar_table`
+--
+ALTER TABLE `bar_table`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `bookinginfor`
 --
 ALTER TABLE `bookinginfor`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `designation`
+--
+ALTER TABLE `designation`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `employee`
+--
+ALTER TABLE `employee`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `foodinfor`
@@ -480,6 +669,12 @@ ALTER TABLE `foodinfor`
 --
 ALTER TABLE `inventory`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `lq_category`
+--
+ALTER TABLE `lq_category`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `purchase`
@@ -504,6 +699,17 @@ ALTER TABLE `signup`
 --
 ALTER TABLE `tempbill`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `bar_rec_ingredients_tb`
+--
+ALTER TABLE `bar_rec_ingredients_tb`
+  ADD CONSTRAINT `Liq_id_FK` FOREIGN KEY (`lqu_id`) REFERENCES `bar_inventory` (`id`),
+  ADD CONSTRAINT `bar_rec_id_FK` FOREIGN KEY (`bar_rec_Id`) REFERENCES `bar_recepies_tb` (`Id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

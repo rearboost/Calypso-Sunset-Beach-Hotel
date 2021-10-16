@@ -48,17 +48,11 @@
                       //echo  mysqli_error($conn);	
                       //}
                       echo 1;
-                    }
-                          
               }else{
                   echo  mysqli_error($conn);	
-              }
-          }
-
-                                                       
+              }   
+          }                                   
           //////// INSER /////////
-
-         
      }
 
     

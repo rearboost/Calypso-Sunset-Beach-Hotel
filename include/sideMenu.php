@@ -108,6 +108,37 @@
             </a>         
         </div>
     </li>    
+
+    <li class="nav-item <?php  if(basename($_SERVER['PHP_SELF'])=='employee.php'){ echo "active";}  ?>">
+        <a class="nav-link inv" style="cursor: pointer;">
+            <i class="fa fa-file-text-o"></i>
+            <p>Report<i class="fa fa-caret-down" style="float: right;"></i></p>
+        </a>
+        <div class="dropdown-container" style="display: none;">
+            <a class="nav-link" href="stokReport.php">
+                <i class="fa fa-file-text"></i>
+                <p><b>Stok Report</b></p>
+            </a>
+            <a class="nav-link" href="payment.php">
+                <i class="fa fa-credit-card"></i>
+                <p><b>Payment</b></p>
+            </a>  
+             <a class="nav-link" href="account_settings.php">
+                <i class="fa fa-sun-o"></i>
+                <p><b>Food Price</b></p>
+            </a>     
+            <a class="nav-link" href="account_settings.php">
+                <i class="fa fa-sun-o"></i>
+                <p><b>Sale</b></p>
+            </a>       
+            <a class="nav-link" href="account_settings.php">
+                <i class="fa fa-sun-o"></i>
+                <p><b>Expenses</b></p>
+            </a>    
+        </div>
+    </li>    
+
+
     <li class="nav-item <?php  if(basename($_SERVER['PHP_SELF'])=='settings.php'){ echo "active";}  ?>">
         <a class="nav-link" href="settings.php">
             <i class="fa fa-cog"></i>

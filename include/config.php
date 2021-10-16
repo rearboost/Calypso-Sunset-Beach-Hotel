@@ -2,7 +2,7 @@
 <?php
 	$severname = "localhost";
 	$username = "root";
-	$password = "";
+	$password = "root";
 	$db = "hmsdb";
 
 

@@ -65,9 +65,10 @@
           $quantity =mysqli_real_escape_string($conn ,$_POST['quantity']);
           $measurement =mysqli_real_escape_string($conn ,$_POST['measurement']);
           $description =mysqli_real_escape_string($conn ,$_POST['description']);
+          $isFood = 1;
 
           //////// INSER /////////
-          $queryin ="INSERT INTO  Inventory (item_id,cat_id,name,measurement,quantity,description)  VALUES (?,?,?,?,?,?)";
+          $queryin ="INSERT INTO  Inventory (item_id,cat_id,name,measurement,quantity,description,isFood)  VALUES (?,?,?,?,?,?,?)";
           $stmt =mysqli_stmt_init($conn);
           if(!mysqli_stmt_prepare($stmt,$queryin))
           {
@@ -75,7 +76,7 @@
           }
           else
           {
-              mysqli_stmt_bind_param($stmt,"ssssss",$item_id,$cat_id,$iname,$measurement,$quantity,$description);
+              mysqli_stmt_bind_param($stmt,"sssssss",$item_id,$cat_id,$iname,$measurement,$quantity,$description,$isFood);
               $resultin =  mysqli_stmt_execute($stmt);
               if($resultin){
                 echo 1;
